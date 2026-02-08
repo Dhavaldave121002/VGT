@@ -86,21 +86,29 @@ const AppContent = () => {
   const location = useLocation();
 
   React.useEffect(() => {
-    // Check system health on load
+    let healthChecked = false;
+    let minTimeElapsed = false;
+
     const checkHealth = async () => {
       try {
-        // Minimum wait for branding impact
-        const apiHealthy = await api.checkConnection();
-        console.log("System Health - API:", apiHealthy ? "ONLINE" : "OFFLINE");
+        await api.checkConnection();
+        healthChecked = true;
+        if (minTimeElapsed) setLoading(false);
       } catch (e) {
-        console.error("System health check critical failure", e);
-      } finally {
-        // Always hide loader after logic completes
-        setLoading(false);
+        console.error("Health check failure", e);
+        healthChecked = true; // Still allow entry to site with fallbacks
+        if (minTimeElapsed) setLoading(false);
       }
     };
 
-    const timer = setTimeout(checkHealth, 2500);
+    // Minimum branding time (3.5s for that premium feel)
+    const timer = setTimeout(() => {
+      minTimeElapsed = true;
+      if (healthChecked) setLoading(false);
+    }, 3500);
+
+    checkHealth();
+
     return () => clearTimeout(timer);
   }, []);
 
