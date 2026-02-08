@@ -1,0 +1,50 @@
+[
+  {
+    "id": "p-001",
+    "title": "Vertex Tee — Tech Blue",
+    "price": 599,
+    "category": "Apparel",
+    "thumb": "/assets/products/tshirt-blue.jpg",
+    "description": "Soft cotton tee with Vertex Global Tech branding.",
+    "tags": ["apparel","shirt"],
+    "featured": true,
+    "stock": 200,
+    "createdAt": "2025-05-01"
+  },
+  {
+    "id": "p-002",
+    "title": "Vertex Ceramic Mug",
+    "price": 349,
+    "category": "Merch",
+    "thumb": "/assets/products/mug.jpg",
+    "description": "Premium ceramic mug with logo.",
+    "tags": ["mug","kitchen"],
+    "featured": false,
+    "stock": 100,
+    "createdAt": "2025-03-20"
+  },
+  {
+    "id": "p-003",
+    "title": "Developer Notebook — A5",
+    "price": 249,
+    "category": "Accessories",
+    "thumb": "/assets/products/notebook.jpg",
+    "description": "Ruled A5 notebook for dev notes.",
+    "tags": ["notebook","stationery"],
+    "featured": false,
+    "stock": 300,
+    "createdAt": "2024-11-02"
+  },
+  {
+    "id": "p-004",
+    "title": "USB-C Hub — 4-in-1",
+    "price": 1499,
+    "category": "Gadgets",
+    "thumb": "/assets/products/hub.jpg",
+    "description": "Compact USB-C hub with HDMI & USB-A ports.",
+    "tags": ["gadgets","hub"],
+    "featured": false,
+    "stock": 50,
+    "createdAt": "2025-02-10"
+  }
+]

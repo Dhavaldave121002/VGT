@@ -1,0 +1,1230 @@
+/* career.css — PREMIUM professional, high-visibility career page styling */
+
+/* =======================================================
+   1. ENHANCED ROOT VARIABLES (Dark Theme Base)
+   ======================================================= */
+
+:root {
+  /* Enhanced Colors - Maximum Contrast */
+  --accent1: #00d8ff; /* Neon cyan - extremely bright */
+  --accent2: #3b82f6; /* Bright blue */
+  --text-primary: #ffffff; /* Pure white for maximum visibility */
+  --text-secondary: #e2e8f0; /* Very light gray for secondary text */
+  --text-muted: #94a3b8; /* Brighter muted text */
+  --bg-page: #0b1220; /* Darker background for better contrast */
+  --bg-card: rgba(255, 255, 255, 0.1); /* Much more visible */
+  --border-color: rgba(255, 255, 255, 0.25); /* Much stronger borders */
+  --border-glow: rgba(59, 130, 246, 0.3);
+  --input-bg: rgba(255, 255, 255, 0.12);
+  --error-color: #ff6b6b; /* Brighter red */
+  --success-color: #00c853; /* Bright green */
+  
+  /* Enhanced Shadows */
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 15px 40px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.3);
+  --shadow-accent: 0 15px 40px rgba(59, 130, 246, 0.4);
+  
+  /* Spacing */
+  --radius-lg: 20px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+}
+
+/* =======================================================
+   2. PAGE BASE & TYPOGRAPHY - ENHANCED
+   ======================================================= */
+
+.career-page {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  min-height: auto; /* controlled by .vh-100-section when used */
+  padding-top: calc(var(--site-header-height, 80px) + 20px);
+  padding-bottom: calc(var(--site-footer-height, 220px) + 20px);
+  position: relative;
+  overflow-x: visible;
+}
+
+/* Ensure container-fluid has proper responsive padding */
+.career-page .container-fluid,
+.career-page .container-lg {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 576px) {
+  .career-page .container-fluid,
+  .career-page .container-lg {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .career-page .container-fluid,
+  .career-page .container-lg {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .career-page .container-fluid,
+  .career-page .container-lg {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn-primary,
+  .btn-outline-light {
+    min-height: 56px;
+    padding: 14px 24px !important;
+  }
+  
+  .form-control,
+  .form-select {
+    font-size: 16px;
+    min-height: 56px;
+    padding: 16px 12px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .career-page {
+    --text-primary: #ffffff;
+    --border-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Background Gradient Overlay */
+.career-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(180deg, 
+    rgba(59, 130, 246, 0.2) 0%,
+    transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.career-page .container {
+  position: relative;
+  z-index: 1;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* base styles for labels/small text */
+.small, 
+.form-text { 
+  font-size: 0.9rem; /* Slightly larger */
+  color: var(--text-secondary) !important; 
+  font-weight: 500; /* Better readability */
+}
+
+/* Utility Classes for Responsive Margins */
+@media (max-width: 767px) {
+  .ms-0 {
+    margin-left: 0 !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .ms-md-auto {
+    margin-left: auto !important;
+  }
+}
+
+/* =======================================================
+   3. HERO SECTION (career-hero) - ENHANCED
+   ======================================================= */
+
+.career-hero {
+  padding: 80px 0 60px; 
+  text-align: center;
+  position: relative;
+}
+
+@media (max-width: 991px) {
+  .career-hero {
+    padding: 60px 0 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .career-hero {
+    padding: 40px 0 25px;
+  }
+}
+
+@media (max-width: 575px) {
+  .career-hero {
+    padding: 30px 0 20px;
+  }
+}
+
+.career-hero .eyebrow {
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent1);
+  margin-bottom: 15px;
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(0, 216, 255, 0.15);
+  border-radius: 50px;
+  border: 1px solid rgba(0, 216, 255, 0.3);
+  text-shadow: 0 0 10px rgba(0, 216, 255, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@media (min-width: 768px) {
+  .career-hero .eyebrow {
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.career-hero h1 {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 25px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.career-hero h1::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  border-radius: 2px;
+}
+
+.career-hero .lead {
+  font-size: clamp(1rem, 1.4vw, 1.5rem);
+  color: var(--text-secondary) !important;
+  max-width: 800px;
+  margin: 30px auto 0;
+  line-height: 1.8;
+  font-weight: 400;
+  background: rgba(255, 255, 255, 0.05);
+  padding: clamp(15px, 3vw, 30px);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+}
+
+/* =======================================================
+   4. FILTERS SECTION (filters-wrap) - ENHANCED
+   ======================================================= */
+
+.filters-wrap {
+  padding-bottom: 30px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .filters-wrap {
+    padding-bottom: 40px;
+    margin-top: 20px;
+    justify-content: flex-start;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.btn-group {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .btn-group {
+    width: auto;
+  }
+}
+
+.btn-group .btn-sm {
+  font-weight: 700;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 10px 16px;
+  border: 2px solid transparent;
+  font-size: 0.85rem;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  min-width: 80px;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .btn-group .btn-sm {
+    flex: auto;
+    min-width: auto;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Unselected Filter / CTA Button */
+.btn-outline-light {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: transparent;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .btn-outline-light {
+    font-size: 0.95rem;
+  }
+}
+
+.btn-outline-light:hover {
+  color: var(--accent1);
+  background: rgba(0, 216, 255, 0.15);
+  border-color: rgba(0, 216, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 216, 255, 0.2);
+}
+
+/* Selected Filter Button */
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent2), var(--accent1));
+  border-color: transparent;
+  color: #ffffff;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+  opacity: 0.95;
+}
+
+/* =======================================================
+   5. JOB CARD (job-card) - ENHANCED
+   ======================================================= */
+
+.job-list-container {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.job-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 20px !important;
+  margin-bottom: 20px !important;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .job-card {
+    padding: 25px !important;
+    margin-bottom: 25px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .job-card {
+    padding: 30px !important;
+    margin-bottom: 25px !important;
+  }
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.job-card:hover::before {
+  opacity: 1;
+}
+
+/* Apply Modal */
+.apply-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  padding: 1rem;
+}
+
+.apply-modal {
+  width: 100%;
+  max-width: 760px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.apply-modal-header .btn-close {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+}
+
+.apply-modal-body { max-height: calc(100vh - 160px); overflow:auto; }
+
+@media (hover: hover) and (pointer: fine) {
+  .job-card:hover {
+    border-color: var(--accent1);
+    box-shadow: var(--shadow-accent), 0 0 30px rgba(0, 216, 255, 0.2);
+    transform: translateY(-8px);
+  }
+}
+
+/* Metadata (Left Column) */
+.job-meta {
+  padding-right: 0;
+  border-right: none;
+  border-bottom: 2px dashed rgba(255, 255, 255, 0.1);
+  text-align: left;
+  width: 100%;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 992px) {
+  .job-meta {
+    padding-right: 25px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+    text-align: right;
+    width: 140px;
+    min-height: 100%;
+  }
+}
+
+.job-type {
+  display: inline-block;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--accent1);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 216, 255, 0.15);
+  border: 1px solid rgba(0, 216, 255, 0.3);
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0, 216, 255, 0.1);
+}
+
+.job-location {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+/* Main Content (Title and Chips) */
+.job-title {
+  font-weight: 800;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.3;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.job-card small.text-muted {
+  font-weight: 600;
+  font-size: 0.95rem !important;
+  color: var(--text-secondary) !important;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* Skill Chips */
+.skill-chip {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--accent1);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  transition: all 0.2s ease;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+@media (min-width: 768px) {
+  .skill-chip {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .skill-chip:hover {
+    background: rgba(59, 130, 246, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  }
+}
+
+/* Apply Button */
+.job-card .btn-outline-primary {
+  border: 2px solid var(--accent2);
+  color: var(--accent2);
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .job-card .btn-outline-primary:hover {
+    background: var(--accent2);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+  }
+}
+
+/* Job Details (Expanded Section) */
+.job-details {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 2px dashed rgba(255, 255, 255, 0.15);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.job-details h6 {
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  position: relative;
+  padding-left: 20px;
+}
+
+.job-details h6::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: var(--accent1);
+  font-size: 1rem;
+}
+
+.job-details ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 25px;
+}
+
+.job-details ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: var(--text-secondary) !important;
+  line-height: 1.6;
+}
+
+.job-details ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent1);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+/* =======================================================
+   6. RECRUITER & ALERT BOXES - ENHANCED
+   ======================================================= */
+
+/* General Card Styling */
+.apply-card, 
+.recruiter-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px !important;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 768px) {
+  .apply-card, 
+  .recruiter-card {
+    padding: 25px !important;
+    margin-bottom: 25px;
+  }
+}
+
+@media (min-width: 992px) {
+  .apply-card, 
+  .recruiter-card {
+    padding: 30px !important;
+    margin-bottom: 30px;
+  }
+}
+
+.recruiter-card h5 {
+  color: var(--text-primary);
+  font-weight: 800;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.recruiter-card a {
+  color: var(--accent1);
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.recruiter-card a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent1);
+  transition: width 0.3s ease;
+}
+
+.recruiter-card a:hover {
+  color: var(--accent2);
+}
+
+.recruiter-card a:hover::after {
+  width: 100%;
+}
+
+.recruiter-card strong {
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+/* No Results Alert */
+.job-list-container .alert-info {
+  background: rgba(59, 130, 246, 0.15) !important; 
+  border: 2px solid rgba(59, 130, 246, 0.4) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-md);
+  padding: 25px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+
+.job-list-container .alert-info a {
+  color: var(--accent1) !important;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.job-list-container .alert-info a:hover {
+  text-shadow: 0 0 10px rgba(0, 216, 255, 0.4);
+}
+
+/* =======================================================
+   7. APPLY FORM (apply-card) - ENHANCED
+   ======================================================= */
+
+.apply-card h4 {
+  font-weight: 800;
+  color: var(--text-primary);
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.apply-card h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--accent1);
+  border-radius: 2px;
+}
+
+.apply-card .form-label { 
+  color: var(--text-primary); 
+  font-weight: 700; 
+  margin-bottom: 10px;
+  font-size: 1rem;
+  display: block;
+}
+
+/* Input Fields */
+.apply-card .form-control, 
+.apply-card .form-select {
+  background: var(--input-bg);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  border-radius: var(--radius-sm);
+  min-height: 48px;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .apply-card .form-control, 
+  .apply-card .form-select {
+    padding: 14px 16px;
+    font-size: 1rem;
+    min-height: 52px;
+  }
+}
+
+.apply-card .form-control::placeholder { 
+  color: rgba(255, 255, 255, 0.5); 
+  font-weight: 400;
+}
+
+.apply-card .form-control:focus, 
+.apply-card .form-select:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--accent1);
+  box-shadow: 0 0 0 4px rgba(0, 216, 255, 0.25);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+/* Custom Select Arrow */
+.apply-card .form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2300d8ff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  padding-right: 45px;
+}
+
+/* Validation */
+.apply-card .invalid-feedback { 
+  color: var(--error-color); 
+  font-weight: 600; 
+  font-size: 0.9rem;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.apply-card .invalid-feedback::before {
+  content: '⚠';
+  font-size: 1.1rem;
+}
+
+.apply-card .form-control.is-invalid, 
+.apply-card .form-select.is-invalid {
+  border-color: var(--error-color);
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.apply-card .form-control.is-invalid:focus {
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.25);
+}
+
+.apply-card .form-control:disabled {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* Submit Button */
+.apply-card .btn-primary {
+  background: linear-gradient(90deg, var(--accent2), var(--accent1));
+  border: none;
+  font-weight: 800;
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .apply-card .btn-primary {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+  }
+}
+
+.apply-card .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4), 0 0 20px rgba(0, 216, 255, 0.3);
+}
+
+/* =======================================================
+   8. RESPONSIVE TWEAKS - ENHANCED
+   ======================================================= */
+
+@media (max-width: 1200px) {
+  .career-page {
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 991px) {
+  .career-page {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+  
+  .job-type {
+    display: block;
+    text-align: left;
+  }
+}
+
+@media (max-width: 767px) {
+  .career-page {
+    padding-top: 40px;
+    padding-bottom: 50px;
+  }
+  
+  .career-hero {
+    padding: 30px 0 20px;
+  }
+  
+  .career-hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .career-hero .lead {
+    padding: 12px 15px;
+    font-size: 0.95rem;
+    margin: 20px auto 0;
+  }
+  
+  .filters-wrap {
+    padding-bottom: 20px;
+    margin-top: 10px;
+    justify-content: center;
+  }
+  
+  .btn-group {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn-group .btn-sm {
+    width: 100%;
+    margin-bottom: 5px;
+    flex: none;
+  }
+  
+  .job-card {
+    padding: 16px !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .job-title {
+    font-size: 1.15rem;
+  }
+  
+  .job-card .d-flex {
+    flex-wrap: wrap;
+  }
+  
+  .job-details {
+    margin-top: 20px;
+    padding-top: 15px;
+  }
+  
+  .job-details h6 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  
+  .apply-card h4,
+  .recruiter-card h5 {
+    font-size: 1.4rem;
+  }
+  
+  .apply-card,
+  .recruiter-card {
+    padding: 16px !important;
+    margin-bottom: 16px;
+  }
+  
+  .apply-card .form-label {
+    font-size: 0.9rem;
+  }
+  
+  .apply-card .form-control,
+  .apply-card .form-select {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 575px) {
+  .career-hero h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .career-hero .eyebrow {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+  
+  .career-hero .lead {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    margin: 15px auto 0;
+  }
+  
+  .job-card {
+    padding: 12px !important;
+    margin-bottom: 12px !important;
+  }
+  
+  .job-type {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+  
+  .job-title {
+    font-size: 1.05rem;
+  }
+  
+  .skill-chip {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  
+  .job-details ul li {
+    font-size: 0.9rem;
+    padding-left: 20px;
+  }
+  
+  .apply-card h4,
+  .recruiter-card h5 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .apply-card .form-label {
+    font-size: 0.85rem;
+  }
+  
+  .apply-card .form-control,
+  .apply-card .form-select {
+    font-size: 0.85rem;
+    padding: 9px 11px;
+    min-height: 40px;
+  }
+  
+  .apply-card .btn-primary {
+    padding: 12px 20px;
+    font-size: 0.85rem;
+    margin-top: 15px;
+  }
+}
+
+/* =======================================================
+   9. LIGHT MODE OVERRIDES - ENHANCED
+   ======================================================= */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Enhanced Light Colors */
+    --text-primary: #0f172a; /* Very dark for maximum contrast */
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --bg-page: #ffffff;
+    --bg-card: #ffffff;
+    --border-color: rgba(15, 23, 42, 0.2);
+    --border-glow: rgba(59, 130, 246, 0.15);
+    --input-bg: #f1f5f9;
+    --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.15);
+    --shadow-md: 0 15px 40px rgba(15, 23, 42, 0.1);
+    --shadow-sm: 0 8px 25px rgba(15, 23, 42, 0.08);
+    --shadow-accent: 0 15px 40px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Base */
+  .career-page { 
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    color: var(--text-primary); 
+  }
+
+  /* Background Gradient */
+  .career-page::before {
+    background: linear-gradient(180deg, 
+      rgba(59, 130, 246, 0.1) 0%,
+      transparent 100%);
+  }
+
+  /* Hero */
+  .career-hero h1 { 
+    color: var(--text-primary); 
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.1);
+  }
+
+  .career-hero .lead {
+    background: rgba(15, 23, 42, 0.03);
+    border-color: var(--border-color);
+  }
+
+  /* Cards */
+  .job-card, 
+  .apply-card, 
+  .recruiter-card { 
+    background: var(--bg-card); 
+    border-color: var(--border-color); 
+    box-shadow: var(--shadow-md);
+  }
+
+  .job-card:hover {
+    box-shadow: var(--shadow-accent);
+  }
+
+  /* Filters & Buttons */
+  .btn-group {
+    background: #ffffff;
+    border-color: var(--border-color);
+  }
+
+  .btn-outline-light {
+    color: var(--text-primary);
+    background: rgba(15, 23, 42, 0.05);
+  }
+
+  .btn-outline-light:hover {
+    color: var(--accent2);
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  /* Job Card Specifics */
+  .job-meta { 
+    border-right-color: rgba(15, 23, 42, 0.1); 
+  }
+  
+  .job-type { 
+    background: rgba(59, 130, 246, 0.1); 
+    color: var(--accent2); 
+    border-color: rgba(59, 130, 246, 0.2);
+  }
+  
+  .job-title { 
+    color: var(--text-primary); 
+  }
+  
+  .skill-chip { 
+    background: var(--input-bg); 
+    color: var(--text-primary);
+    border-color: rgba(15, 23, 42, 0.1);
+  }
+  
+  .job-details { 
+    border-top-color: rgba(15, 23, 42, 0.1); 
+  }
+  
+  .job-details ul li::before { 
+    color: var(--accent2); 
+  }
+
+  /* Form and Alert */
+  .apply-card .form-label { 
+    color: var(--text-primary); 
+  }
+  
+  .apply-card .form-control, 
+  .apply-card .form-select {
+    background: var(--input-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+  }
+  
+  .apply-card .form-control::placeholder {
+    color: rgba(15, 23, 42, 0.5);
+  }
+  
+  .apply-card .form-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%233b82f6' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  }
+  
+  .job-list-container .alert-info {
+    background: #e0f0ff !important;
+    border-color: #b3d9ff !important;
+    color: var(--text-primary) !important;
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+  }
+  
+  .job-list-container .alert-info a {
+    color: var(--accent2) !important;
+  }
+  
+  .recruiter-card a {
+    color: var(--accent2);
+  }
+}
+
+/* =======================================================
+   10. ACCESSIBILITY FEATURES
+   ======================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .career-hero .eyebrow {
+    animation: none;
+  }
+  
+  .job-details {
+    animation: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --border-color: #ffffff;
+    --accent1: #00ffff;
+    --accent2: #0000ff;
+  }
+  
+  .job-card,
+  .apply-card,
+  .recruiter-card {
+    border-width: 3px;
+    background: #000000 !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .career-page {
+    background: white !important;
+    color: black !important;
+    padding: 20px 0 !important;
+  }
+  
+  .career-hero .eyebrow,
+  .btn-group,
+  .job-card .btn-outline-primary,
+  .apply-card .btn-primary {
+    display: none !important;
+  }
+  
+  .job-card,
+  .apply-card,
+  .recruiter-card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    background: white !important;
+    color: black !important;
+    break-inside: avoid;
+  }
+}

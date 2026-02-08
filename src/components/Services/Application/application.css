@@ -1,0 +1,499 @@
+/*
+ * Application Page Styles
+ * Consolidates base styles and component-specific enhancements.
+ * Theme Accent: Deep Indigo (#4f46e5)
+ */
+
+/* =======================================================
+   1. GLOBAL ROOT VARIABLES (Dark Theme Base)
+   ======================================================= */
+
+:root {
+    /* Base Colors (Overriding initial user input with the Deep Indigo Theme) */
+    --color-primary-app: #4f46e5;    /* Deep Indigo Accent */
+    --color-text: #eaf6ff;           /* Light Text */
+    --color-muted: #9fb8cf;         /* Muted Text */
+    
+    /* Backgrounds */
+    --color-bg-main: #0f172a;        /* Deep Slate Blue (Base Background) */
+    --color-bg-soft: #161e31;        /* Section Background (Slightly lighter) */
+    --color-surface: #1e293b;        /* Card/Modal Background */
+    
+    /* Form & UI Elements */
+    --color-card-bg: rgba(255, 255, 255, 0.02); 
+    --color-input-bg: rgba(255, 255, 255, 0.05); 
+    --color-border: rgba(255, 255, 255, 0.12);
+    --color-invalid: #dc3545;        /* Red for errors */
+    --color-focus-ring: rgba(79, 70, 229, 0.3);
+
+    /* Bootstrap Overrides (using our accent) */
+    --bs-primary: var(--color-primary-app);
+}
+
+/* =======================================================
+   2. GLOBAL PAGE & LAYOUT STYLES
+   ======================================================= */
+
+.app-page { 
+    color: var(--color-text); 
+    background-color: var(--color-bg-main);
+}
+
+.bg-soft,
+.app-platforms-section,
+.app-pricing-section,
+.app-process-section,
+.app-faq-section { 
+    background-color: var(--color-bg-soft); 
+}
+
+h3 {
+    font-weight: 800;
+    color: var(--color-text);
+}
+
+.lead { 
+    color: var(--color-muted); 
+}
+
+/* =======================================================
+   3. HERO SECTION (app-hero.css integration)
+   ======================================================= */
+
+.app-hero {
+    background: radial-gradient(circle at 10% 50%, rgba(79, 70, 229, 0.1) 0%, transparent 40%), var(--color-bg-main);
+    padding: 100px 0;
+}
+
+.app-hero .eyebrow {
+    color: var(--color-primary-app);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+.app-hero h1.display-5 {
+    font-weight: 900;
+    color: var(--color-text);
+    line-height: 1.15;
+}
+
+.app-hero img.shadow {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--color-border);
+}
+
+/* =======================================================
+   4. CARD BASE STYLES (app-case-studies, app-features, etc.)
+   ======================================================= */
+
+.feature-card, .proj-card, .process-card, .price-card, .app-contact-form {
+    background: var(--color-surface);
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+}
+
+/* Project Card Specifics */
+.proj-card img.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.proj-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary-app); 
+}
+
+/* =======================================================
+   5. FEATURES SECTION (app-features.css integration)
+   ======================================================= */
+
+.feature-card {
+    padding: 25px !important;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--color-primary-app);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-out;
+    border-radius: 12px 12px 0 0;
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* =======================================================
+   6. PLATFORMS SECTION (app-platforms.css integration)
+   ======================================================= */
+
+.app-platforms-section .list-unstyled li {
+    font-size: 1.05rem;
+    color: var(--color-text);
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.app-platforms-section .list-unstyled li::before {
+    content: "•";
+    color: var(--color-primary-app);
+    font-size: 1.5em;
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1;
+}
+
+/* =======================================================
+   7. PROCESS SECTION (app-process.css integration)
+   ======================================================= */
+
+.ecom-process-section .process {
+    background: var(--color-surface);
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+}
+
+.ecom-process-section .step {
+    width: 45px;
+    height: 45px;
+    line-height: 41px;
+    background-color: var(--color-primary-app);
+    color: white;
+    font-weight: 900;
+    font-size: 1.25rem;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 3px solid var(--color-bg-soft);
+    box-shadow: 0 0 0 4px var(--color-primary-app);
+}
+
+/* =======================================================
+   8. PRICING SECTION (app-pricing.css integration)
+   ======================================================= */
+
+.price-card .price {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--color-primary-app);
+    line-height: 1.1;
+}
+
+.price-card.featured {
+    background-color: var(--color-featured-bg, #272d42);
+    border-color: var(--color-primary-app);
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(79, 70, 229, 0.3);
+}
+
+.price-card.featured .price {
+    color: var(--color-text);
+    background: linear-gradient(180deg, var(--color-primary-app) 0%, #a7a3ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* =======================================================
+   9. FAQ & ACCORDION (app-faq.css integration)
+   ======================================================= */
+
+.accordion {
+    --bs-accordion-border-color: var(--color-border);
+    --bs-accordion-bg: var(--color-surface);
+    --bs-accordion-color: var(--color-text);
+    --bs-accordion-active-color: var(--color-primary-app);
+    --bs-accordion-active-bg: var(--color-bg-soft);
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem var(--color-focus-ring);
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    border-radius: 8px !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--color-primary-app);
+    background-color: var(--color-bg-soft);
+    border-bottom: 1px solid var(--color-primary-app);
+}
+
+.accordion-body {
+    background-color: var(--color-bg-soft);
+    color: var(--color-muted) !important;
+}
+
+/* =======================================================
+   10. CONTACT FORM (app-contact-form.css integration)
+   ======================================================= */
+
+.app-contact-form {
+    background: var(--color-surface);
+}
+
+.form-control, .form-select, .app-contact-form textarea {
+    background: var(--color-input-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.form-control::placeholder {
+    color: var(--color-muted);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--color-primary-app);
+    box-shadow: 0 0 0 0.25rem var(--color-focus-ring);
+}
+
+.form-control.is-invalid, .app-contact-form textarea.is-invalid {
+    border-color: var(--color-invalid) !important;
+}
+
+/* =======================================================
+   11. GLOBAL BUTTON STYLES (To ensure consistency)
+   ======================================================= */
+
+.btn-primary {
+    background-color: var(--color-primary-app);
+    border-color: var(--color-primary-app);
+    font-weight: 700;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.15);
+}
+
+.btn-outline-light {
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    font-weight: 600;
+}
+
+.btn-outline-light:hover {
+    color: var(--color-primary-app);
+    background-color: rgba(79, 70, 229, 0.1);
+    border-color: var(--color-primary-app);
+}
+
+/* =======================================================
+   12. MEDIA QUERIES & RESPONSIVE DESIGN
+   ======================================================= */
+
+@media (max-width: 991px) {
+    .app-hero {
+        padding: 60px 0;
+    }
+    
+    .proj-card img.card-img-top {
+        height: 180px;
+    }
+    
+    .price-card.featured {
+        transform: scale(1.02);
+    }
+}
+
+@media (max-width: 767px) {
+    .app-hero {
+        padding: 40px 0;
+    }
+    
+    .proj-card img.card-img-top {
+        height: 160px;
+    }
+    
+    .price-card.featured {
+        transform: scale(1);
+    }
+    
+    .feature-card, .proj-card, .process-card, .price-card, .app-contact-form {
+        padding: 20px;
+    }
+}
+
+/* =======================================================
+   13. LIGHT MODE OVERRIDES
+   ======================================================= */
+
+@media (prefers-color-scheme: light) {
+    :root {
+        /* Light Mode Overrides */
+        --color-text: #0f172a;
+        --color-muted: #64748b;
+        --color-bg-main: #ffffff;
+        --color-bg-soft: #f0f4f8;
+        --color-surface: #ffffff;
+        --color-border: rgba(0, 0, 0, 0.1);
+        --color-card-bg: #fff;
+        --color-input-bg: #f8fafc;
+        --color-featured-bg: #ffffff;
+        --color-focus-ring: rgba(79, 70, 229, 0.2);
+    }
+
+    .app-page {
+        color: var(--color-text);
+        background-color: var(--color-bg-main);
+    }
+
+    h3 {
+        color: var(--color-text);
+    }
+
+    /* Inputs/Forms */
+    .form-control, .form-select, .app-contact-form textarea {
+        background: var(--color-input-bg);
+        color: var(--color-text);
+    }
+
+    /* Cards */
+    .feature-card, .proj-card, .process-card, .price-card, .app-contact-form {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Pricing Feature fix */
+    .price-card.featured {
+        border: 2px solid var(--color-primary-app);
+    }
+
+    .price-card.featured .price {
+        color: var(--color-primary-app);
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+        background-clip: unset;
+    }
+
+    /* Buttons */
+    .btn-outline-light {
+        color: var(--color-text);
+        border-color: var(--color-border);
+    }
+
+    .btn-outline-light:hover {
+        background-color: rgba(79, 70, 229, 0.1);
+    }
+
+    /* Process section adjustments */
+    .ecom-process-section .step {
+        border-color: var(--color-bg-soft);
+        box-shadow: 0 0 0 4px var(--color-primary-app);
+    }
+
+    /* Platform list bullets */
+    .app-platforms-section .list-unstyled li::before {
+        color: var(--color-primary-app);
+    }
+
+    /* Hero section adjustments */
+    .app-hero {
+        background: radial-gradient(circle at 10% 50%, rgba(79, 70, 229, 0.05) 0%, transparent 40%), var(--color-bg-main);
+    }
+
+    .app-hero img.shadow {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px var(--color-border);
+    }
+}
+
+/* =======================================================
+   14. ACCESSIBILITY ENHANCEMENTS
+   ======================================================= */
+
+.btn-primary:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+}
+
+/* Screen reader only text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* =======================================================
+   15. ANIMATIONS & TRANSITIONS
+   ======================================================= */
+
+.feature-card,
+.proj-card,
+.process-card,
+.price-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Smooth theme transition */
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+}
+
+/* =======================================================
+   16. UTILITY CLASSES
+   ======================================================= */
+
+.text-primary-app {
+    color: var(--color-primary-app) !important;
+}
+
+.bg-primary-app {
+    background-color: var(--color-primary-app) !important;
+}
+
+.border-primary-app {
+    border-color: var(--color-primary-app) !important;
+}
+
+/* =======================================================
+   17. PRINT STYLES
+   ======================================================= */
+
+@media print {
+    .app-hero,
+    .btn-primary,
+    .btn-outline-light {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+    
+    .feature-card,
+    .proj-card,
+    .process-card,
+    .price-card,
+    .app-contact-form {
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+    }
+    
+    .app-hero img.shadow {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+}

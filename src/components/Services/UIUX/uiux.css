@@ -1,0 +1,464 @@
+/* =======================================================
+   uiux.css - Comprehensive Stylesheet for UI/UX Service Page
+   -------------------------------------------------------
+   Accent: Vibrant Cyan (#0dcaf0)
+   ======================================================= */
+
+/* --- 1. Root Variables (Dark Theme Base) --- */
+:root {
+    /* Base Colors */
+    --color-primary-uiux: #0dcaf0;    /* Vibrant Cyan Accent */
+    --color-secondary-uiux: #0d6efd;  /* Secondary Blue Accent (Used for Eyebrow) */
+    --color-text: #eaf6ff;           /* Light Text */
+    --color-muted: #9fb8cf;         /* Muted Text */
+    --color-bg-main: #07131a;        /* Deep Slate Blue (Base Background) */
+    --color-bg-soft: #161e31;        /* Secondary/Section Background */
+    --color-surface: #1e293b;        /* Card/Modal Content Background */
+    --color-card-bg: rgba(255, 255, 255, 0.02); /* Original transparent card background */
+    --color-border: rgba(255, 255, 255, 0.12);
+    --color-invalid: #dc3545;        /* Red for errors */
+    --color-focus-ring: rgba(13, 202, 240, 0.3);
+}
+
+/* --- 2. Base Page and Section Styling --- */
+.uiux-page {
+    color: var(--color-text);
+    background-color: var(--color-bg-main);
+}
+
+.bg-soft {
+    background: var(--color-bg-soft);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0) 100%), var(--color-bg-soft);
+}
+
+.text-center h3 {
+    font-weight: 800;
+    color: var(--color-text);
+}
+
+.lead {
+    color: var(--color-muted) !important;
+}
+
+/* --- 3. Hero Section --- */
+.uiux-hero {
+    padding: 100px 0;
+    background: radial-gradient(circle at 90% 50%, rgba(13, 202, 240, 0.1) 0%, transparent 40%), var(--color-bg-main);
+}
+
+.uiux-hero .eyebrow {
+    color: var(--color-secondary-uiux);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+.uiux-hero .display-5 {
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--color-text);
+}
+
+.uiux-hero img {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* --- 4. Shared Card Styles (CaseStudies, Pricing, Process, Offerings) --- */
+.offering-card,
+.process-card,
+.proj-card,
+.price-card {
+    background: var(--color-surface);
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.proj-card:hover,
+.price-card:hover,
+.process-card:hover,
+.offering-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary-uiux);
+}
+
+/* Case Study Specifics */
+.proj-card img.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1px solid var(--color-border);
+    transition: transform 0.4s ease;
+}
+
+.proj-card:hover img.card-img-top {
+    transform: scale(1.03);
+}
+
+.proj-card .card-body {
+    padding: 20px;
+}
+
+.proj-card .card-title {
+    color: var(--color-text);
+    font-weight: 700;
+}
+
+/* Pricing Card Specifics */
+.price-card.featured {
+    background-color: var(--color-surface);
+    border: 2px solid var(--color-primary-uiux);
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(13, 202, 240, 0.3);
+}
+
+.price-card .price {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--color-primary-uiux);
+    margin-bottom: 5px;
+    line-height: 1.1;
+}
+
+.price-card.featured .price {
+    background: linear-gradient(180deg, var(--color-primary-uiux) 0%, #a3f4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.price-card .feature-icon {
+    color: var(--color-primary-uiux);
+    margin-right: 10px;
+    font-weight: 900;
+}
+
+/* Process Card Specifics */
+.process-card .step-number {
+    width: 50px;
+    height: 50px;
+    line-height: 46px;
+    background-color: var(--color-primary-uiux);
+    color: var(--color-bg-soft);
+    font-weight: 900;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 3px solid var(--color-surface);
+    box-shadow: 0 0 0 5px var(--color-primary-uiux);
+}
+
+/* Offerings Card Specifics */
+.offering-card {
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.offering-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--color-primary-uiux);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-out;
+    border-radius: 12px 12px 0 0;
+}
+
+.offering-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* --- 5. Forms (ContactForm) --- */
+.form-control,
+.form-select,
+textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.form-control::placeholder {
+    color: rgba(234, 246, 255, 0.46);
+    opacity: 1;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--color-primary-uiux);
+    box-shadow: 0 0 0 0.25rem var(--color-focus-ring);
+}
+
+.form-control.is-invalid,
+textarea.is-invalid {
+    border-color: var(--color-invalid) !important;
+}
+
+/* --- 6. Buttons (Shared Styles) --- */
+.btn-primary {
+    background-color: var(--color-primary-uiux);
+    border-color: var(--color-primary-uiux);
+    color: var(--color-bg-soft);
+    font-weight: 700;
+    border-radius: 8px;
+    transition: filter 0.3s;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.15);
+}
+
+.btn-outline-light {
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.btn-outline-light:hover {
+    color: var(--color-primary-uiux);
+    background-color: rgba(13, 202, 240, 0.1);
+    border-color: var(--color-primary-uiux);
+}
+
+/* --- 7. FAQ (Accordion) --- */
+.accordion {
+    --bs-accordion-border-color: var(--color-border);
+    --bs-accordion-bg: var(--color-surface);
+    --bs-accordion-color: var(--color-text);
+    --bs-accordion-active-color: var(--color-primary-uiux);
+    --bs-accordion-active-bg: var(--color-bg-soft);
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem var(--color-focus-ring);
+}
+
+.accordion-item {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accordion-button:not(.collapsed) {
+    border-bottom: 1px solid var(--color-primary-uiux);
+    border-radius: 8px 8px 0 0;
+}
+
+.accordion-body {
+    background-color: var(--color-bg-soft);
+    color: var(--color-muted);
+    border-radius: 0 0 8px 8px;
+}
+
+/* --- 8. Modal Styling --- */
+.modal.show {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+
+.modal-header,
+.modal-footer {
+    background-color: var(--color-bg-soft);
+    border-color: var(--color-border);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 12px 12px 0 0;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--color-border);
+    border-radius: 0 0 12px 12px;
+}
+
+/* --- 9. Responsive and Mobile Adjustments --- */
+@media (max-width: 991px) {
+    .uiux-hero {
+        padding: 80px 0;
+    }
+
+    .price-card.featured {
+        transform: scale(1.02);
+    }
+}
+
+@media (max-width: 767px) {
+    .uiux-hero {
+        padding: 40px 0;
+    }
+
+    .proj-card img.card-img-top {
+        height: 160px;
+    }
+
+    .price-card.featured {
+        transform: scale(1);
+    }
+
+    .offering-card,
+    .process-card,
+    .proj-card,
+    .price-card {
+        padding: 20px;
+    }
+}
+
+/* =======================================================
+   10. LIGHT MODE OVERRIDES
+   ======================================================= */
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-card-bg: #fff;
+        --color-text: #0f172a;
+        --color-muted: #64748b;
+        --color-bg-main: #f8fafc;
+        --color-bg-soft: #f0f4f8;
+        --color-surface: #ffffff;
+        --color-border: rgba(0, 0, 0, 0.1);
+        --color-focus-ring: rgba(13, 202, 240, 0.2);
+    }
+
+    .uiux-page {
+        color: var(--color-text);
+        background-color: var(--color-bg-main);
+    }
+
+    /* Card overrides */
+    .offering-card,
+    .process-card,
+    .proj-card,
+    .price-card {
+        background: var(--color-surface);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .price-card.featured {
+        border: 2px solid var(--color-primary-uiux);
+        box-shadow: 0 10px 30px rgba(13, 202, 240, 0.1);
+    }
+
+    .price-card.featured .price {
+        color: var(--color-primary-uiux);
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+        background-clip: unset;
+    }
+
+    /* Form overrides */
+    .form-control,
+    .form-select,
+    textarea {
+        background: #fff;
+        color: var(--color-text);
+        border-color: var(--color-border);
+    }
+
+    .form-control::placeholder {
+        color: var(--color-muted);
+    }
+
+    /* Modal overrides */
+    .modal-content {
+        background-color: var(--color-surface);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header,
+    .modal-footer {
+        background-color: var(--color-bg-soft);
+    }
+
+    /* Process card light mode adjustments */
+    .process-card .step-number {
+        color: #07131a;
+        border-color: var(--color-surface);
+        box-shadow: 0 0 0 5px var(--color-primary-uiux);
+    }
+
+    /* Hero section light mode */
+    .uiux-hero {
+        background: radial-gradient(circle at 90% 50%, rgba(13, 202, 240, 0.05) 0%, transparent 40%), var(--color-bg-main);
+    }
+
+    .uiux-hero img {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* =======================================================
+   11. ACCESSIBILITY & ENHANCEMENTS
+   ======================================================= */
+/* Focus styles for keyboard navigation */
+.btn-primary:focus-visible,
+.btn-outline-light:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+}
+
+/* Smooth transitions for theme switching */
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --color-border: rgba(255, 255, 255, 0.3);
+        --color-focus-ring: rgba(13, 202, 240, 0.5);
+    }
+}
+
+/* =======================================================
+   12. PRINT STYLES
+   ======================================================= */
+@media print {
+    .uiux-hero {
+        padding: 40px 0 !important;
+        background: white !important;
+    }
+
+    .offering-card,
+    .process-card,
+    .proj-card,
+    .price-card {
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+    }
+
+    .btn-primary,
+    .btn-outline-light {
+        background: white !important;
+        color: black !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .price-card.featured .price {
+        color: #0dcaf0 !important;
+        background: none !important;
+        -webkit-text-fill-color: #0dcaf0 !important;
+    }
+}

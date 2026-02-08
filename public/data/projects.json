@@ -1,0 +1,18 @@
+[
+  {
+    "id": "proj-1",
+    "title": "Inventory Platform",
+    "thumb": "/assets/projects/inventory.jpg",
+    "excerpt": "Headless CMS + admin for managing stock and sales.",
+    "description": "Full-featured inventory management with roles, CSV import, and reporting.",
+    "stack": ["Next.js","Strapi","Postgres"]
+  },
+  {
+    "id": "proj-2",
+    "title": "Marketplace",
+    "thumb": "/assets/projects/marketplace.jpg",
+    "excerpt": "Multi-vendor marketplace with payments and seller dashboards.",
+    "description": "Custom checkout flows, product management and shipping integrations.",
+    "stack": ["React","Node","Stripe"]
+  }
+]

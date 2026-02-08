@@ -1,0 +1,120 @@
+/* Global Bootstrap harmonization and conflict fixes
+   - Keep Bootstrap for layout and controls
+   - Reduce conflicts with per-component CSS that used global grids
+   - Provide helper utilities and normalize fixed elements
+*/
+
+/* Ensure Bootstrap utilities don't clash with custom root styles */
+html, body, #root {
+  height: 100%;
+}
+
+/* Prevent global containers from having unexpected max-width overrides */
+.container, .container-fluid, .container-lg {
+  max-width: 100%;
+}
+
+/* Normalize common elements to Bootstrap defaults while retaining theme */
+button, .btn {
+  font-family: inherit;
+  border-radius: 8px;
+}
+
+input.form-control, textarea.form-control, select.form-select {
+  background-clip: padding-box;
+  border-radius: 8px;
+  min-height: 44px;
+}
+
+/* Reduce aggressive global grid rules from component CSS */
+[class*="-grid"], .grid, .content-grid, .services-grid, .skeleton-services-grid {
+  gap: 1rem;
+}
+
+/* Make sure fixed header doesn't overlap in-page anchors */
+:target::before {
+  content: "";
+  display: block;
+  height: var(--site-header-height, 80px);
+  margin-top: calc(var(--site-header-height, 80px) * -1);
+}
+
+/* Improve focus visible styles to match theme */
+:focus {
+  outline: 3px solid rgba(13,110,253,0.22);
+  outline-offset: 2px;
+}
+
+/* Avoid duplicate scrollbars on containers set to overflow:auto */
+.vh-100-section .container {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Harmonize card shadows and backgrounds */
+.card, .info-card, .service-card, .share-card, .form-card {
+  background: var(--color-surface, #0f172a);
+  border: 1px solid var(--color-border, rgba(255,255,255,0.06));
+  box-shadow: 0 6px 24px rgba(2,6,23,0.6);
+}
+
+/* Floating actions safe area */
+.floating-contact-pro {
+  position: fixed;
+  z-index: 99999;
+}
+
+/* Ensure footer sections remain visible and not clipped */
+.vg-footer {
+  position: relative;
+}
+
+/* Small screens: make sure vh sections behave well */
+@media (max-width: 576px) {
+  .vh-100-section {
+    min-height: calc(100vh - var(--site-header-height, 80px) - 90px);
+  }
+}
+
+/* Ensure sections are full-bleed and start below header */
+section, .section, .hero-section, .main-section, .contact-section, .cta-section {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hero & full-viewport sections should account for header/footer so content isn't hidden */
+.vh-100-section {
+  min-height: calc(100vh - var(--site-header-height, 80px) - var(--site-footer-height, 220px));
+  padding-top: calc(var(--site-header-height, 80px) + 20px);
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vh-100-section .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Make hero backgrounds full width to avoid white gaps under fixed header */
+.hero-section, .hero-banner {
+  background-clip: border-box;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+/* Floating actions: respect footer safe area */
+.floating-contact-pro.right { bottom: calc(var(--site-footer-height, 220px) + 24px) !important; }
+.floating-contact-pro.left { bottom: calc(var(--site-footer-height, 220px) + 24px) !important; }
+
+/* Ensure images and cards scale nicely */
+img, .card img, .service-icon img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Avoid global fixed-width on containers coming from component CSS */
+.container, .container-fluid, .container-lg {
+  max-width: 1200px !important;
+  padding-left: clamp(12px, 3vw, 24px) !important;
+  padding-right: clamp(12px, 3vw, 24px) !important;
+}

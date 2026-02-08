@@ -1,0 +1,9 @@
+﻿
+C:\Users\Admin\Desktop\VGTW\V_G_T_W\Vertex\src\pages\pricing\OdooPricing.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Admin\Desktop\VGTW\V_G_T_W\Vertex\src\pages\services\Odoo.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+Ô£û 2 problems (2 errors, 0 warnings)
+

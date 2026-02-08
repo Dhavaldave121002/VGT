@@ -1,0 +1,92 @@
+[
+  {
+    "id": "proj-1",
+    "title": "Inventory Platform",
+    "thumb": "/assets/projects/inventory.jpg",
+    "excerpt": "Headless CMS + admin for managing stock and sales.",
+    "description": "Full-featured inventory management with roles, CSV import, reporting and export. Admin dashboards, webhooks, and role-based access.",
+    "stack": ["Next.js", "Strapi", "Postgres"],
+    "tags": ["web", "dynamic", "admin"]
+  },
+  {
+    "id": "proj-2",
+    "title": "Marketplace",
+    "thumb": "/assets/projects/marketplace.jpg",
+    "excerpt": "Multi-vendor marketplace with payments and seller dashboards.",
+    "description": "Custom checkout flows, product management and shipping integrations with seller analytics and commission rules.",
+    "stack": ["React", "Node", "Stripe"],
+    "tags": ["ecommerce", "web", "marketplace"]
+  },
+  {
+    "id": "proj-3",
+    "title": "Travel Companion App",
+    "thumb": "/assets/projects/travel-app.jpg",
+    "excerpt": "Cross-platform app for trip planning & bookings.",
+    "description": "Flutter-based travel app with offline maps, itinerary sync and booking integrations.",
+    "stack": ["Flutter", "Firebase"],
+    "tags": ["app", "mobile", "cross-platform"]
+  },
+  {
+    "id": "proj-4",
+    "title": "Field Workforce App",
+    "thumb": "/assets/projects/field-app.jpg",
+    "excerpt": "Enterprise app for field teams with offline sync.",
+    "description": "Kotlin Android app with task sync, photo evidence, and background sync for low-connectivity regions.",
+    "stack": ["Kotlin", "Node.js"],
+    "tags": ["app", "mobile", "enterprise"]
+  },
+  {
+    "id": "proj-5",
+    "title": "Corporate Site — Dinesh Industries",
+    "thumb": "/assets/projects/portfolio-1.jpg",
+    "excerpt": "Clean corporate site focused on services & lead gen.",
+    "description": "SEO-first informative website with service pages, case studies and contact lead capture. Lightweight and easy to update.",
+    "stack": ["HTML", "Bootstrap", "Netlify"],
+    "tags": ["informative", "web", "brochure"]
+  },
+  {
+    "id": "proj-6",
+    "title": "Portfolio — Creative Studio",
+    "thumb": "/assets/projects/portfolio-2.jpg",
+    "excerpt": "Showcase site with case studies and gallery.",
+    "description": "High-performance portfolio with animated case studies, lazy-loaded media and CMS-powered case entries.",
+    "stack": ["Gatsby", "Contentful"],
+    "tags": ["informative", "web", "portfolio", "ui"]
+  },
+  {
+    "id": "proj-7",
+    "title": "SaaS Landing & Signup Flow",
+    "thumb": "/assets/projects/portfolio-3.jpg",
+    "excerpt": "Conversion-focused landing and signup funnel for a SaaS product.",
+    "description": "Optimised landing with A/B-ready hero, pricing table and secure signup flow integrated with Stripe.",
+    "stack": ["Next.js", "Stripe"],
+    "tags": ["landing", "web", "conversion"]
+  },
+  {
+    "id": "proj-8",
+    "title": "Retail E-commerce Store",
+    "thumb": "/assets/projects/ecom-store.jpg",
+    "excerpt": "Shopify + custom storefront for a retail brand.",
+    "description": "Headless storefront, custom product configurator, and a smooth mobile checkout experience with analytics & marketing integrations.",
+    "stack": ["Shopify", "React"],
+    "tags": ["ecommerce", "web", "shop"]
+  },
+  {
+    "id": "proj-9",
+    "title": "UI/UX Redesign — FinTech App",
+    "thumb": "/assets/projects/uiux-fintech.jpg",
+    "excerpt": "Design system and usability improvements for a finance app.",
+    "description": "Full redesign: research, wireframes, high-fidelity prototypes and a component library for consistent handoff to devs.",
+    "stack": ["Figma", "Design System"],
+    "tags": ["ui", "design", "product"]
+  },
+  {
+    "id": "proj-10",
+    "title": "Onboarding Flow Optimization",
+    "thumb": "/assets/projects/uiux-onboard.jpg",
+    "excerpt": "Usability study and redesign that increased activation.",
+    "description": "Remote usability tests, iterations and a new onboarding microcopy + flow that improved activation metrics.",
+    "stack": ["Figma", "UX Research"],
+    "tags": ["ui", "ux", "research", "design"]
+  }
+]

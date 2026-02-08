@@ -1,0 +1,207 @@
+/* src/pages/dynamic.css — FINAL Comprehensive Styling for the Dynamic Website Service Page */
+
+/* =======================================================
+   1. GLOBAL PAGE VARIABLES (Dark Mode First)
+   ======================================================= */
+
+:root {
+    /* Base Theme Colors */
+    --color-primary: #ffc107;      /* Primary Accent: Amber (Dynamism) */
+    --color-secondary-accent: #0d6efd; /* Secondary Accent: Bootstrap Blue */
+    --color-text: #eaf6ff;         /* Light Text */
+    --color-muted: #9fb8cf;        /* Muted Text */
+    --color-bg: #0f172a;           /* Deep Slate Blue - Main Background */
+    --color-surface: #1e293b;      /* Component/Card Background */
+    --color-border: rgba(255, 255, 255, 0.12);
+    
+    /* Specific overrides from component CSS for blending */
+    --color-bg-features: #161e31;
+    --color-bg-start: #1e0f31;
+    --color-bg-end: #0f172a;
+    --color-featured-bg: #27344a;
+}
+
+.dynamic-page { 
+    color: var(--color-text); 
+    background-color: var(--color-bg);
+}
+
+/* =======================================================
+   2. HERO SECTION STYLING (.dyn-hero)
+   ======================================================= */
+
+.dyn-hero {
+    /* Using the enhanced gradient from dynamic-hero.css */
+    background: linear-gradient(145deg, var(--color-bg-start) 0%, var(--color-bg-end) 100%);
+    padding: 100px 0; 
+}
+.dyn-hero .eyebrow { 
+    color: var(--color-primary); /* Changed to Amber accent */
+    font-weight: 800; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px;
+}
+.dyn-hero .display-5 { 
+    font-weight: 900; 
+    color: var(--color-text); 
+    line-height: 1.15;
+}
+.dyn-hero .lead { 
+    color: var(--color-muted) !important;
+    max-width: 600px;
+}
+.dyn-hero img.shadow {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--color-border);
+}
+
+
+/* =======================================================
+   3. GENERAL CARD STYLING (Features, Projects, Blog, Pricing)
+   ======================================================= */
+
+.feature-card, .proj-card, .post-card, .price-card, .contact-panel { 
+    background: var(--color-surface); 
+    border-radius: 12px; 
+    padding: 25px; /* Standardized generous padding */
+    border: 1px solid var(--color-border); 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease;
+}
+
+.proj-card:hover, .post-card:hover, .feature-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+}
+
+.proj-card img, .post-card img { 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+
+/* =======================================================
+   4. SECTION BACKGROUNDS & UTILITIES
+   ======================================================= */
+
+.dynamic-features-section {
+    background-color: var(--color-bg-features);
+}
+.dynamic-pricing-section {
+    background-color: var(--color-bg-features);
+}
+
+/* Form Control Styling (used in ContactQuote) */
+.form-control, .dynamic-contact-section textarea { 
+    background: rgba(255, 255, 255, 0.05); /* Slightly darker input field */
+    border: 1px solid var(--color-border); 
+    color: var(--color-text); 
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+.form-control::placeholder { 
+    color: rgba(234, 246, 255, 0.4); 
+}
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+}
+
+
+/* =======================================================
+   5. SPECIFIC COMPONENT OVERRIDES
+   ======================================================= */
+
+/* Pricing Card Highlight */
+.price-card.featured {
+    background-color: var(--color-featured-bg);
+    border-color: var(--color-primary);
+    transform: scale(1.05); 
+    box-shadow: 0 15px 40px rgba(255, 193, 7, 0.2);
+}
+
+/* Pagination Links (BlogGrid) */
+.page-link {
+    color: var(--color-muted);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+}
+.page-item.active .page-link {
+    color: #000;
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+
+/* =======================================================
+   6. RESPONSIVENESS
+   ======================================================= */
+
+@media (max-width: 991px) {
+    .proj-card img, .post-card img { height: 180px; }
+}
+
+@media (max-width: 767px) {
+    .proj-card img, .post-card img { height: 150px; }
+    .dyn-hero { padding: 60px 0; }
+}
+
+
+/* =======================================================
+   7. LIGHT MODE OVERRIDES
+   ======================================================= */
+
+@media (prefers-color-scheme: light) {
+    :root { 
+        --color-primary: #0d6efd;      /* Revert primary to blue for light theme */
+        --color-text: #0f1724;         /* Dark Text */
+        --color-muted: #64748b;        /* Muted Gray */
+        --color-bg: #f8fafc;           /* Light Gray Background */
+        --color-surface: #ffffff;      /* White Card Background */
+        --color-border: rgba(0, 0, 0, 0.1);
+        
+        /* Reset specific backgrounds */
+        --color-bg-features: #ffffff;
+        --color-featured-bg: #ffffff;
+        --color-bg-start: #f8fafc;
+        --color-bg-end: #ffffff;
+    }
+    
+    .dynamic-page { color: var(--color-text); }
+    
+    /* Hero Reset */
+    .dyn-hero { 
+        background: linear-gradient(145deg, var(--color-bg-start) 0%, var(--color-bg-end) 100%);
+    }
+    .dyn-hero .eyebrow { 
+        color: var(--color-primary); 
+    }
+    .dyn-hero img.shadow {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px var(--color-border);
+    }
+
+    /* Card Reset */
+    .feature-card, .proj-card, .post-card, .price-card, .contact-panel { 
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); 
+    }
+    .price-card.featured {
+        border-color: var(--color-primary);
+        box-shadow: 0 10px 30px rgba(13, 110, 253, 0.2);
+    }
+    
+    /* Form Reset */
+    .form-control, .dynamic-contact-section textarea { 
+        background: var(--color-surface); 
+        color: var(--color-text); 
+        border-color: var(--color-border);
+    }
+    
+    /* Pagination Reset */
+    .page-item.active .page-link {
+        color: white;
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+}

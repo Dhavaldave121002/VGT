@@ -1,0 +1,391 @@
+/*
+ * COMPLETE E-COMMERCE SERVICE STYLESHEET
+ * Merged from Hero, Features, Pricing, Process, FAQ, Contact, and Modal components.
+ * Uses #198754 (Success Green) as the primary E-commerce Accent.
+ */
+
+/* =======================================================
+   1. ROOT VARIABLES (Dark Theme Base)
+   ======================================================= */
+
+:root {
+  /* E-commerce Theme Colors (Green/Growth focused) */
+  --color-primary-ecom: #198754;   /* Bootstrap Success Green */
+  --color-invalid: #dc3545;        /* Red for errors */
+  
+  /* Background & Surface */
+  --color-bg-main: #0f172a;        /* Deep Slate Blue (Main Section BG) */
+  --color-bg-soft: #161e31;        /* Slightly lighter BG for soft sections (e.g., Pricing) */
+  --color-surface: #1e293b;        /* Standard Card/Form/Modal Background */
+  
+  /* Text & Border */
+  --color-text: #eaf6ff;           /* Light Text */
+  --color-muted: #9fb8cf;         /* Muted Text */
+  --color-border: rgba(255, 255, 255, 0.12);
+  
+  /* Specific Component Variables */
+  --color-focus-ring: rgba(25, 135, 84, 0.25); /* Green focus accessibility ring */
+  --color-input-bg: rgba(255, 255, 255, 0.05);
+  --color-input-placeholder: rgba(234, 246, 255, 0.4);
+  --color-featured-bg: #223528;    /* Darker green-tinted featured background (Pricing) */
+  --color-accordion-active-bg: #27344a; /* Lighter surface for open FAQ item */
+  --color-modal-backdrop-bg: rgba(2, 6, 12, 0.85); /* Dark, semi-transparent backdrop */
+}
+
+/* =======================================================
+   2. GLOBAL BASE STYLES
+   ======================================================= */
+
+.ecom-service-page { 
+    color: var(--color-text); 
+    background-color: var(--color-bg-main);
+}
+
+h3 {
+    font-weight: 800;
+    color: var(--color-text);
+}
+
+.lead.text-muted {
+    color: var(--color-muted) !important;
+}
+
+/* Base Button Styling (for non-Hero buttons) */
+.btn-primary {
+    background-color: var(--color-primary-ecom);
+    border-color: var(--color-primary-ecom);
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+.btn-primary:hover {
+    filter: brightness(1.15);
+    border-color: var(--color-primary-ecom);
+    box-shadow: 0 2px 10px var(--color-focus-ring);
+}
+.btn-outline-light {
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+.btn-outline-light:hover {
+    color: var(--color-primary-ecom);
+    background-color: rgba(25, 135, 84, 0.1);
+    border-color: var(--color-primary-ecom);
+}
+
+/* =======================================================
+   3. HERO SECTION (.ecom-hero)
+   ======================================================= */
+
+.ecom-hero {
+    background: linear-gradient(145deg, #0e271a 0%, var(--color-bg-main) 100%);
+    padding: 100px 0; 
+    color: var(--color-text);
+}
+.ecom-hero .eyebrow {
+    color: var(--color-primary-ecom); 
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+.ecom-hero h1.display-5 {
+    font-weight: 900;
+    color: var(--color-text);
+    line-height: 1.15;
+}
+.ecom-hero img.shadow {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--color-border);
+    transition: transform 0.3s;
+}
+
+/* =======================================================
+   4. FEATURES & PROJECTS (Cards)
+   ======================================================= */
+
+.ecom-features-section,
+.ecom-projects-grid-section {
+    background-color: var(--color-bg-soft);
+    padding: 80px 0;
+}
+
+/* Shared Card Base */
+.ecom-feature, .proj-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    padding: 25px;
+}
+.ecom-feature:hover, .proj-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary-ecom); 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Feature Specific */
+.ecom-feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--color-primary-ecom);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-out;
+}
+.ecom-feature:hover::before {
+    transform: scaleX(1);
+}
+
+/* Projects Grid Specific */
+.proj-card { padding: 0 !important; }
+.proj-card .card-img-top {
+    height: 220px; 
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-border);
+}
+.proj-card .card-body {
+    padding: 18px;
+}
+
+
+/* =======================================================
+   5. PRICING SECTION (.ecom-pricing-section)
+   ======================================================= */
+
+.ecom-pricing-section {
+    background-color: var(--color-bg-soft);
+    padding: 80px 0;
+}
+
+.price-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 30px;
+    height: 100%;
+}
+.price-card .price {
+    font-size: 2.5rem; 
+    font-weight: 900;
+    color: var(--color-text);
+}
+.price-card.featured {
+    background-color: var(--color-featured-bg);
+    border-color: var(--color-primary-ecom);
+    transform: scale(1.05); 
+    box-shadow: 0 15px 40px rgba(25, 135, 84, 0.3); 
+}
+.price-card.featured .price {
+    color: var(--color-primary-ecom);
+}
+
+/* Comparison Table */
+.ecom-feat-table {
+    --bs-table-color: var(--color-text);
+}
+.ecom-feat-table th,
+.ecom-feat-table td {
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.75rem 0.5rem;
+}
+.ecom-feat-table thead th {
+    color: var(--color-primary-ecom);
+    border-bottom: 2px solid var(--color-primary-ecom);
+}
+.ecom-feat-table tbody tr td:first-child {
+    color: var(--color-text);
+}
+
+/* =======================================================
+   6. PROCESS SECTION (.ecom-process-section)
+   ======================================================= */
+
+.ecom-process-section {
+    background-color: var(--color-bg-main);
+    padding: 80px 0;
+    position: relative;
+}
+.process {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 25px !important; 
+    z-index: 10; /* Ensure cards overlap line */
+}
+.process .step {
+    width: 45px;
+    height: 45px;
+    line-height: 43px;
+    background-color: var(--color-primary-ecom);
+    color: white;
+    font-weight: 900;
+    font-size: 1.25rem;
+    border-radius: 50%;
+    margin: 0 auto 15px; 
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+.ecom-process-section .row::after {
+    content: '';
+    position: absolute;
+    top: 105px; 
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(to right, 
+        var(--color-primary-ecom) 0%, 
+        var(--color-primary-ecom) 50%, 
+        var(--color-border) 50%, 
+        var(--color-border) 100%
+    );
+    z-index: 0;
+    display: none; 
+}
+@media (min-width: 768px) {
+    .ecom-process-section .row::after {
+        display: block;
+    }
+}
+
+/* =======================================================
+   7. FAQ SECTION (.ecom-faq-section)
+   ======================================================= */
+
+.ecom-faq-section {
+    background-color: var(--color-bg-soft);
+    padding: 80px 0;
+}
+.accordion {
+    --bs-accordion-border-color: var(--color-border);
+    --bs-accordion-bg: var(--color-surface);
+    --bs-accordion-btn-color: var(--color-text);
+    --bs-accordion-active-color: var(--color-primary-ecom);
+    --bs-accordion-active-bg: var(--color-accordion-active-bg);
+}
+.accordion-item {
+    margin-bottom: 10px; 
+    border-radius: 8px !important;
+}
+.accordion-button {
+    font-weight: 600;
+    color: var(--color-text);
+}
+.accordion-button:not(.collapsed) {
+    color: var(--color-primary-ecom);
+    background-color: var(--color-accordion-active-bg);
+    border-bottom: 1px solid var(--color-primary-ecom); 
+}
+.accordion-body {
+    background-color: var(--color-accordion-active-bg);
+    color: var(--color-muted) !important;
+}
+
+/* =======================================================
+   8. CONTACT FORM (.ecom-contact-form)
+   ======================================================= */
+
+.ecom-contact-form .form-control,
+.ecom-contact-form textarea {
+    background: var(--color-input-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    border-radius: 8px;
+}
+.ecom-contact-form .form-control::placeholder {
+    color: var(--color-input-placeholder);
+}
+.ecom-contact-form .form-control:focus {
+    border-color: var(--color-primary-ecom);
+    box-shadow: 0 0 0 0.25rem var(--color-focus-ring); 
+}
+.ecom-contact-form .form-control.is-invalid {
+    border-color: var(--color-invalid);
+}
+.ecom-contact-form .invalid-feedback {
+    color: var(--color-invalid);
+}
+
+
+/* =======================================================
+   9. MODAL (.ecom-project-modal.css)
+   ======================================================= */
+
+.modal.d-block {
+    background: var(--color-modal-backdrop-bg);
+    backdrop-filter: blur(5px); 
+}
+.modal-content {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+.modal-header {
+    border-bottom: 1px solid var(--color-border);
+}
+.modal-header .modal-title {
+    color: var(--color-primary-ecom); 
+}
+.modal-footer {
+    border-top: 1px solid var(--color-border);
+}
+
+/* =======================================================
+   10. LIGHT MODE OVERRIDES
+   ======================================================= */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-text: #0f172a;
+    --color-muted: #64748b;
+    --color-bg-main: #f8fafc;
+    --color-bg-soft: #f0f4f8;
+    --color-surface: #ffffff;
+    --color-border: rgba(0, 0, 0, 0.1);
+    --color-input-bg: #ffffff;
+    --color-featured-bg: #f8fcf8;
+}
+
+  .ecom-hero {
+    background: linear-gradient(145deg, #f8fafc 0%, #ffffff 100%);
+  }
+  .ecom-projects-grid-section, .ecom-pricing-section, .ecom-faq-section {
+    background-color: var(--color-bg-soft);
+  }
+  .ecom-process-section {
+    background-color: var(--color-bg-main);
+  }
+
+  .btn-outline-light {
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+  .btn-outline-light:hover {
+    color: var(--color-primary-ecom);
+    background-color: transparent;
+    border-color: var(--color-primary-ecom);
+  }
+
+  /* Cards */
+  .ecom-feature, .proj-card, .price-card, .process {
+      background: var(--color-surface);
+      border-color: var(--color-border);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  .price-card.featured {
+      background-color: var(--color-featured-bg);
+  }
+
+  /* Form Controls */
+  .ecom-contact-form .form-control {
+      background: var(--color-input-bg);
+      color: var(--color-text);
+      border-color: var(--color-border);
+  }
+}

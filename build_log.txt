@@ -1,0 +1,7 @@
+﻿
+> vertex_global_tech@0.0.0 build
+> vite build
+
+[36mrolldown-vite v7.2.5 [32mbuilding client environment for production...[36m[39m
+[2K
+transforming...Ô£ô 1289 modules transformed.

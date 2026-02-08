@@ -1,0 +1,669 @@
+/* src/pages/pricing.css — Unified Stylesheet for All Pricing Plans (Base + Application + UI/UX) */
+
+/* =======================================================
+   1. GLOBAL ROOT VARIABLES (Dark Theme Base)
+   ======================================================= */
+
+:root {
+    /* --- GLOBAL BASE THEME COLORS --- */
+    --color-base-bg: #07131a;        /* Deep Dark Base */
+    --color-card-bg: rgba(255, 255, 255, 0.02);
+    --color-text: #eaf6ff;           /* Light Text */
+    --color-muted: #9fb8cf;         /* Muted Text */
+    --color-border: rgba(255, 255, 255, 0.12);
+
+    /* --- DEFAULT/WEBSITE ACCENTS (If any component defaults to these) --- */
+    --vg-accent1: #0dcaf0;           /* Cyan/Light Blue */
+    --vg-accent2: #0d6efd;           /* Indigo/Primary Blue */
+
+    /* --- APPLICATION (APP) ACCENTS (Green/Teal for development) --- */
+    --color-primary-app: #198754;    /* Professional Green/Teal */
+    --color-app-bg-soft: #0a111a;
+    --color-app-surface: #1e293b;
+    --color-app-highlight-row: #161e31;
+
+    /* --- UI/UX ACCENTS (Vibrant Cyan/Aqua for design) --- */
+    --color-primary-uiux: #17a2b8;   /* Vibrant Cyan/Aqua */
+    --color-uiux-bg-soft: #141d26;
+    --color-uiux-surface: #1e293b;
+    --color-uiux-highlight-row: #161f2b;
+}
+
+/* =======================================================
+   2. BASE PRICING STYLING (Applies to all sections)
+   ======================================================= */
+
+.pricing-page {
+    color: var(--color-text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--color-base-bg);
+}
+
+/* HERO SECTION (Common Structure) */
+.pricing-hero {
+    padding: 100px 0;
+    background: linear-gradient(180deg, #071125 0%, var(--color-base-bg) 100%);
+}
+
+.pricing-hero .eyebrow {
+    color: var(--vg-accent2);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.pricing-hero .display-5 {
+    font-weight: 900;
+    color: var(--color-text);
+    line-height: 1.15;
+    margin-top: 8px;
+}
+
+.pricing-hero .lead.text-muted {
+    color: var(--color-muted);
+    font-size: 1.25rem;
+}
+
+.pricing-hero img.shadow {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* COMMON CARD STYLING (Tiers/Packages) */
+.price-card {
+    background: var(--color-card-bg);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 10px 26px rgba(2, 10, 22, 0.28);
+    height: 100%;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.price-card:hover {
+    transform: translateY(-5px);
+}
+
+.price-card h5 {
+    font-weight: 700;
+    color: var(--color-text);
+    font-size: 1.5rem;
+}
+
+.price-card .small.text-muted {
+    min-height: 38px;
+}
+
+.price-card .price {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin: 10px 0;
+    color: var(--vg-accent1);
+    line-height: 1.1;
+}
+
+.price-card .list-unstyled {
+    margin-bottom: 0;
+}
+
+.price-card .list-unstyled li {
+    padding: 8px 0;
+    color: var(--color-muted);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.price-card .list-unstyled li:last-child {
+    border-bottom: none;
+}
+
+.price-card .list-unstyled li::before {
+    content: "✓";
+    color: var(--vg-accent1);
+    margin-right: 10px;
+    font-weight: 900;
+}
+
+/* FEATURED CARD */
+.featured {
+    transform: scale(1.05);
+    box-shadow: 0 18px 40px rgba(2, 10, 22, 0.36);
+    border-color: rgba(13, 110, 253, 0.12);
+    position: relative;
+    z-index: 1;
+}
+
+.featured:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+/* MISC ELEMENTS */
+.bg-soft {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* FORM CONTROLS (CTA/Contact) */
+.form-control {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--color-text);
+    border-radius: 8px;
+}
+
+.form-control::placeholder {
+    color: rgba(234, 246, 255, 0.46);
+}
+
+/* BUTTONS (General) */
+.btn-primary {
+    background: var(--vg-accent2);
+    border: none;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+}
+
+.btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.12);
+    color: var(--color-text);
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    border-color: var(--vg-accent2);
+    color: var(--vg-accent2);
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+/* ACCORDION (FAQ) */
+.accordion {
+    --bs-accordion-border-color: var(--color-border);
+    --bs-accordion-bg: var(--color-card-bg);
+    --bs-accordion-color: var(--color-text);
+    --bs-accordion-active-color: var(--vg-accent2);
+    --bs-accordion-active-bg: var(--color-card-bg);
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.accordion-item {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.accordion-button {
+    font-weight: 600;
+    color: var(--color-text);
+    background-color: var(--color-card-bg);
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--vg-accent2);
+    background-color: var(--color-card-bg);
+    box-shadow: inset 0 -1px 0 var(--color-border);
+}
+
+.accordion-body {
+    background-color: var(--color-base-bg);
+    color: var(--color-muted);
+}
+
+/* =======================================================
+   3. APPLICATION SPECIFIC STYLING (Green/Teal Overrides)
+   ======================================================= */
+
+/* Hero */
+.pricing-hero .eyebrow[class*="application"] {
+    color: var(--color-primary-app);
+}
+
+.pricing-hero[class*="application"] {
+    background: radial-gradient(circle at 90% 20%, rgba(25, 135, 84, 0.1) 0%, transparent 40%), var(--color-app-bg-soft);
+}
+
+/* Tiers */
+.app-tiers-section {
+    background-color: var(--color-app-bg-soft);
+}
+
+.app-tiers-section .price-card .price {
+    color: var(--color-primary-app);
+}
+
+.app-tiers-section .price-card .list-unstyled li::before {
+    color: var(--color-primary-app);
+}
+
+.app-tiers-section .featured {
+    border: 2px solid var(--color-primary-app);
+    background-color: var(--color-app-surface);
+    box-shadow: 0 15px 40px rgba(25, 135, 84, 0.3);
+}
+
+.app-tiers-section .featured .price {
+    background: linear-gradient(180deg, var(--color-primary-app) 0%, #a2ffc8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Comparison Table */
+.app-comparison-section {
+    background-color: var(--color-app-bg-soft);
+}
+
+.app-comparison-section .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.app-comparison-section .pricing-table thead th {
+    border-bottom: 2px solid var(--color-primary-app);
+    padding: 1rem;
+    text-align: left;
+}
+
+.app-comparison-section .pricing-table thead th:not(:first-child) {
+    color: var(--color-primary-app);
+}
+
+.app-comparison-section .pricing-table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.app-comparison-section .pricing-table tbody td:first-child {
+    background-color: var(--color-app-highlight-row);
+    font-weight: 600;
+}
+
+.app-comparison-section .pricing-table tbody tr:nth-of-type(even) td {
+    background-color: var(--color-app-highlight-row);
+}
+
+.app-comparison-section .comparison-check {
+    color: var(--color-primary-app);
+}
+
+.app-comparison-section .comparison-highlight {
+    color: var(--color-primary-app);
+    font-weight: 600;
+}
+
+/* CTA */
+.app-cta-section {
+    background-color: var(--color-app-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.app-cta-section .btn-primary {
+    background: var(--color-primary-app);
+    border-color: var(--color-primary-app);
+    color: var(--color-app-bg-soft);
+}
+
+.app-cta-section .btn-outline-light:hover {
+    color: var(--color-primary-app);
+    border-color: var(--color-primary-app);
+    background-color: rgba(25, 135, 84, 0.1);
+}
+
+/* FAQ */
+.app-faq-section {
+    background-color: var(--color-app-bg-soft);
+}
+
+.app-faq-section .accordion-button:not(.collapsed) {
+    color: var(--color-primary-app);
+}
+
+.app-faq-section .accordion {
+    --bs-accordion-active-color: var(--color-primary-app);
+}
+
+/* =======================================================
+   4. UI/UX SPECIFIC STYLING (Cyan/Aqua Overrides)
+   ======================================================= */
+
+/* Hero */
+.pricing-hero .eyebrow[class*="uiux"] {
+    color: var(--color-primary-uiux);
+}
+
+.pricing-hero[class*="uiux"] {
+    background: radial-gradient(circle at 90% 80%, rgba(23, 162, 184, 0.1) 0%, transparent 40%), var(--color-uiux-bg-soft);
+}
+
+/* Tiers */
+.uiux-tiers-section {
+    background-color: var(--color-uiux-bg-soft);
+}
+
+.uiux-tiers-section .price-card .price {
+    color: var(--color-primary-uiux);
+}
+
+.uiux-tiers-section .price-card .list-unstyled li::before {
+    color: var(--color-primary-uiux);
+}
+
+.uiux-tiers-section .featured {
+    border: 2px solid var(--color-primary-uiux);
+    background-color: var(--color-uiux-surface);
+    box-shadow: 0 15px 40px rgba(23, 162, 184, 0.3);
+}
+
+.uiux-tiers-section .featured .price {
+    background: linear-gradient(180deg, var(--color-primary-uiux) 0%, #a2e8ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Comparison Table */
+.uiux-comparison-section {
+    background-color: var(--color-uiux-bg-soft);
+}
+
+.uiux-comparison-section .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.uiux-comparison-section .pricing-table thead th {
+    border-bottom: 2px solid var(--color-primary-uiux);
+    padding: 1rem;
+    text-align: left;
+}
+
+.uiux-comparison-section .pricing-table thead th:not(:first-child) {
+    color: var(--color-primary-uiux);
+}
+
+.uiux-comparison-section .pricing-table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.uiux-comparison-section .pricing-table tbody td:first-child {
+    background-color: var(--color-uiux-highlight-row);
+    font-weight: 600;
+}
+
+.uiux-comparison-section .pricing-table tbody tr:nth-of-type(even) td {
+    background-color: var(--color-uiux-highlight-row);
+}
+
+.uiux-comparison-section .comparison-check {
+    color: var(--color-primary-uiux);
+}
+
+.uiux-comparison-section .comparison-highlight {
+    color: var(--color-primary-uiux);
+    font-weight: 600;
+}
+
+/* CTA */
+.uiux-cta-section {
+    background-color: var(--color-uiux-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.uiux-cta-section .btn-primary {
+    background: var(--color-primary-uiux);
+    border-color: var(--color-primary-uiux);
+    color: var(--color-uiux-bg-soft);
+}
+
+.uiux-cta-section .btn-outline-light:hover {
+    color: var(--color-primary-uiux);
+    border-color: var(--color-primary-uiux);
+    background-color: rgba(23, 162, 184, 0.1);
+}
+
+/* FAQ */
+.uiux-faq-section {
+    background-color: var(--color-uiux-bg-soft);
+}
+
+.uiux-faq-section .accordion-button:not(.collapsed) {
+    color: var(--color-primary-uiux);
+}
+
+.uiux-faq-section .accordion {
+    --bs-accordion-active-color: var(--color-primary-uiux);
+}
+
+/* =======================================================
+   5. RESPONSIVE & LIGHT MODE OVERRIDES
+   ======================================================= */
+
+@media (max-width: 991px) {
+    .pricing-hero {
+        padding: 80px 0;
+    }
+
+    .pricing-hero h1.display-5 {
+        font-size: 2.5rem;
+    }
+
+    .featured {
+        transform: none;
+        margin-top: 0;
+    }
+
+    .price-card:hover {
+        transform: none;
+    }
+
+    .price-card .price {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .pricing-hero {
+        padding: 60px 0;
+    }
+
+    .pricing-hero h1.display-5 {
+        font-size: 2rem;
+    }
+
+    .featured {
+        margin: 20px 0;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        /* Base Light Mode Variables */
+        --color-text: #0f172a;
+        --color-muted: #64748b;
+        --color-base-bg: #ffffff;
+        --color-card-bg: #ffffff;
+        --color-border: rgba(0, 0, 0, 0.1);
+
+        /* Light Mode Accent Adjustments */
+        --vg-accent2: #0d6efd;
+        --color-primary-app: #198754;
+        --color-primary-uiux: #17a2b8;
+
+        /* Light Mode Section BG overrides */
+        --color-app-bg-soft: #f0f4f8;
+        --color-uiux-bg-soft: #f0f4f8;
+        --color-app-surface: #ffffff;
+        --color-uiux-surface: #ffffff;
+        --color-app-highlight-row: #f8fafc;
+        --color-uiux-highlight-row: #f8fafc;
+    }
+
+    .pricing-page {
+        background-color: var(--color-base-bg);
+        color: var(--color-text);
+    }
+
+    .pricing-hero {
+        background: radial-gradient(circle at 50% 100%, rgba(13, 110, 253, 0.03) 0%, transparent 50%), var(--color-base-bg);
+    }
+
+    .price-card {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .price-card .price {
+        color: var(--vg-accent1);
+    }
+
+    .price-card .list-unstyled li {
+        border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+    }
+
+    .featured {
+        box-shadow: 0 10px 30px rgba(13, 110, 253, 0.1);
+        border-color: var(--vg-accent2);
+    }
+
+    /* Buttons */
+    .btn-primary {
+        color: white;
+    }
+
+    .btn-outline-light {
+        border-color: var(--color-border);
+        color: var(--color-text);
+    }
+
+    /* Accordion */
+    .accordion {
+        --bs-accordion-active-color: var(--vg-accent2);
+    }
+
+    .accordion-body {
+        background-color: var(--color-app-bg-soft);
+    }
+
+    /* App Overrides (Light Mode) */
+    .app-tiers-section .featured .price {
+        -webkit-text-fill-color: unset;
+        color: var(--color-primary-app);
+        background: none;
+    }
+
+    .app-comparison-section .pricing-table tbody td:first-child,
+    .app-comparison-section .pricing-table tbody tr:nth-of-type(even) td {
+        background-color: var(--color-app-highlight-row);
+    }
+
+    .app-comparison-section .pricing-table tbody tr:nth-of-type(odd) td {
+        background-color: var(--color-surface);
+    }
+
+    .app-cta-section {
+        background-color: var(--color-surface);
+    }
+
+    .app-faq-section .accordion-body {
+        background-color: var(--color-app-bg-soft);
+    }
+
+    /* UI/UX Overrides (Light Mode) */
+    .uiux-tiers-section .featured .price {
+        -webkit-text-fill-color: unset;
+        color: var(--color-primary-uiux);
+        background: none;
+    }
+
+    .uiux-comparison-section .pricing-table tbody td:first-child,
+    .uiux-comparison-section .pricing-table tbody tr:nth-of-type(even) td {
+        background-color: var(--color-uiux-highlight-row);
+    }
+
+    .uiux-comparison-section .pricing-table tbody tr:nth-of-type(odd) td {
+        background-color: var(--color-surface);
+    }
+
+    .uiux-cta-section {
+        background-color: var(--color-surface);
+    }
+
+    .uiux-faq-section .accordion-body {
+        background-color: var(--color-uiux-bg-soft);
+    }
+}
+
+/* =======================================================
+   6. ACCESSIBILITY ENHANCEMENTS
+   ======================================================= */
+
+/* Focus states for better accessibility */
+.btn-primary:focus-visible,
+.btn-outline-light:focus-visible,
+.form-control:focus-visible,
+.accordion-button:focus-visible {
+    outline: 2px solid var(--vg-accent2);
+    outline-offset: 2px;
+}
+
+/* Reduce motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .price-card,
+    .btn-primary,
+    .btn-outline-light,
+    .featured {
+        transition: none;
+    }
+
+    .price-card:hover {
+        transform: none;
+    }
+
+    .featured:hover {
+        transform: scale(1.05);
+    }
+}
+
+/* =======================================================
+   7. PRINT STYLES
+   ======================================================= */
+
+@media print {
+    .pricing-hero {
+        padding: 40px 0 !important;
+        background: white !important;
+    }
+
+    .price-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+
+    .featured {
+        transform: none !important;
+        box-shadow: none !important;
+        border: 2px solid #333 !important;
+    }
+
+    .btn-primary,
+    .btn-outline-light {
+        display: none;
+    }
+
+    .price-card .price {
+        color: #333 !important;
+    }
+}

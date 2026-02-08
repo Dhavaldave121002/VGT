@@ -1,0 +1,151 @@
+/* ------- Robotic 3D Mock + Cards (lightweight, GPU-friendly) ------- */
+
+/* container for mock area */
+.mock-3d-wrap {
+  width: clamp(200px, 40vw, 400px);
+  height: clamp(200px, 40vw, 400px);
+  position: relative;
+  perspective: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: clamp(8px, 1.5vw, 16px);
+}
+
+/* layered mock cards */
+.mock-cards {
+  position: absolute;
+  width: clamp(160px, 30vw, 280px);
+  height: clamp(120px, 20vw, 200px);
+  transform-style: preserve-3d;
+  transition: transform 600ms cubic-bezier(.2,.9,.2,1);
+  transform-origin: center;
+  left: -18px;
+  top: 36px;
+  z-index: 8;
+}
+
+/* card base style */
+.mock-cards .card {
+  position: absolute;
+  width: clamp(160px, 30vw, 280px);
+  height: clamp(120px, 20vw, 200px);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  box-shadow: 0 16px 40px rgba(4,12,24,0.18);
+  padding: clamp(8px, 1.5vw, 16px);
+  transform-origin: center;
+  border: 1px solid rgba(255,255,255,0.03);
+  color: #e6eef8;
+}
+
+/* back / mid / front positions for depth */
+.card-back { transform: translateZ(-36px) rotateX(8deg) rotateY(-6deg) scale(.96); opacity: 0.85; }
+.card-mid  { transform: translateZ(-18px) rotateX(6deg) rotateY(-3deg) scale(.98); opacity: 0.94; left: 6px; top: 8px; }
+.card-front{ transform: translateZ(0px) rotateX(0deg) rotateY(0deg); left: 12px; top: 18px; }
+
+/* card inner lines to simulate content */
+.card-line { 
+  height: clamp(8px, 1.2vw, 12px); 
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); 
+  margin: clamp(8px, 1.2vw, 12px) clamp(2px, 0.5vw, 6px); 
+  border-radius:6px; 
+}
+.card-line.short { width: 40%; }
+.card-controls { display:flex; gap:clamp(6px, 1vw, 10px); margin-top:clamp(6px, 1vw, 10px); }
+.control { 
+  width: clamp(28px, 4vw, 40px); 
+  height: clamp(8px, 1.2vw, 12px); 
+  border-radius:6px; 
+  background: linear-gradient(90deg,#0d6efd,#0dcaf0); 
+  opacity:0.95;
+}
+.control.small { width: clamp(14px, 2vw, 20px); height: clamp(6px, 1vw, 10px); opacity:0.9; }
+
+/* front card specific elements */
+.card-title { 
+  width: 70%; 
+  height: clamp(8px, 1.2vw, 14px); 
+  border-radius:6px; 
+  background: linear-gradient(90deg,#0d6efd33,#0dcaf033); 
+  margin-bottom:clamp(6px, 1vw, 12px);
+}
+.card-input { 
+  width: 86%; 
+  height: clamp(8px, 1.2vw, 14px); 
+  border-radius:6px; 
+  background: rgba(255,255,255,0.03); 
+  margin: clamp(6px, 1vw, 10px) 0;
+}
+.card-input.short { width: 56%; }
+.card-cta { 
+  width: 60%; 
+  height: clamp(24px, 3vw, 40px); 
+  background: linear-gradient(90deg,#0d6efd,#0dcaf0); 
+  border-radius:8px; 
+  margin-top:clamp(6px, 1vw, 12px); 
+  box-shadow: 0 10px 26px rgba(13,110,253,0.12);
+}
+
+/* robot wrapper to the right of cards */
+.robot-wrap {
+  position: absolute;
+  right: clamp(-4px, -2vw, 0px);
+  bottom: 0;
+  z-index: 12;
+  transform-style: preserve-3d;
+  transform: translateZ(40px) translateX(6px) translateY(-6px) scale(1);
+}
+
+/* robot svg scale */
+.robot-svg { 
+  width: clamp(100px, 20vw, 200px); 
+  height: auto; 
+  display:block; 
+  transition: transform 700ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* halo effect (soft ring) */
+.halo {
+  position: absolute;
+  width: clamp(160px, 30vw, 280px);
+  height: clamp(160px, 30vw, 280px);
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, rgba(13,202,240,0.08), transparent 30%),
+              radial-gradient(circle at 70% 70%, rgba(13,110,253,0.06), transparent 36%);
+  filter: blur(8px);
+  left: 36px;
+  top: 22px;
+  z-index: 6;
+}
+
+/* subtle floating / parallax on hover of container (desktop) */
+.mock-3d-wrap:hover .mock-cards {
+  transform: translateY(-6px) rotateX(3deg) rotateY(6deg) translateZ(8px);
+}
+.mock-3d-wrap:hover .robot-svg {
+  transform: translateY(-8px) rotateZ(-4deg) scale(1.02);
+  filter: drop-shadow(0 12px 30px rgba(13,110,253,0.12));
+}
+
+/* Mobile optimizations */
+@media (max-width: 576px) {
+  .mock-3d-wrap { 
+    width: clamp(160px, 35vw, 280px);
+    height: clamp(160px, 35vw, 280px);
+    margin-top: clamp(12px, 2vw, 20px);
+  }
+}
+
+/* Tablet and smaller - hide complex 3D mock to save space and improve performance */
+@media (max-width: 880px) {
+  .mock-3d-wrap { display: none; }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .mock-cards, .robot-svg, .mock-3d-wrap { transition: none !important; animation: none !important; transform: none !important; }
+}
+
+/* Accessibility: ensure color contrast */
+.card, .card-front, .card-mid, .card-back { color: #e6eef8; }

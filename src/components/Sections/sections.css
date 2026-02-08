@@ -1,0 +1,605 @@
+/* sections.css - FINAL professional, high-performance, theme-ready styling */
+
+/* ---------- 1. Variables (Dark Mode Default) ---------- */
+:root {
+  /* Core Theming */
+  --bg-section: #0f172a; /* Base section background */
+  --text-primary: #f8fafc; /* Much lighter for better contrast (was #e6eef8) */
+  --text-muted: #cbd5e1; /* Lightened muted text (was #9fb8cf) */
+  --accent1: #22d3ee; /* Brighter cyan (was #0dcaf0) */
+  --accent2: #3b82f6; /* Brighter blue (was #0d6efd) */
+  
+  /* UI Elements */
+  --card-bg: rgba(255, 255, 255, 0.07); /* Slightly more opaque (was 0.05) */
+  --card-hover-bg: rgba(255, 255, 255, 0.12);
+  --border-color: rgba(255, 255, 255, 0.15); /* More visible borders (was 0.1) */
+  --shadow-lg: 0 16px 40px rgba(4,12,24,0.4); /* Stronger shadow (was 0.3) */
+  --shadow-accent: 0 16px 40px rgba(59, 130, 246, 0.4); /* Brighter accent shadow */
+}
+
+/* ---------------------------------------------------- */
+/* 2. General Section Utilities */
+/* ---------------------------------------------------- */
+.sections { 
+  color: var(--text-primary); 
+  padding: clamp(40px, 8vh, 80px) clamp(12px, 3vw, 40px);
+  background-color: var(--bg-section);
+  box-sizing: border-box;
+}
+
+.section-title { 
+  font-weight: 900; 
+  font-size: clamp(24px, 4vw, 48px); 
+  color: var(--text-primary); 
+  margin-bottom: clamp(12px, 2vw, 20px);
+  margin-top: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
+  line-height: 1.2;
+}
+
+.section-intro { 
+  color: var(--text-muted); 
+  max-width: 68ch; 
+  margin: 0 auto clamp(24px, 4vw, 40px); 
+  line-height: 1.7;
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 400;
+}
+
+/* ---------------------------------------------------- */
+/* 3. Feature Card Styling (.feature-card) */
+/* ---------------------------------------------------- */
+.feature-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 32px; /* Increased padding */
+  border-radius: 16px; 
+  min-height: 100%;
+  box-shadow: var(--shadow-lg);
+  transition: transform 300ms cubic-bezier(0.2, 0.9, 0.2, 1), 
+              box-shadow 300ms ease, 
+              border-color 300ms ease,
+              background-color 300ms ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  opacity: 0.8; /* More visible */
+  transition: opacity 300ms ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent1);
+  box-shadow: 0 20px 50px rgba(34, 211, 238, 0.2), var(--shadow-lg);
+  background: var(--card-hover-bg);
+}
+
+.feature-card h5 {
+  color: var(--text-primary);
+  font-weight: 800;
+  font-size: 1.3rem; /* Larger */
+  margin-bottom: 12px;
+  margin-top: 0;
+  letter-spacing: -0.01em; /* Slight letter spacing */
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  line-height: 1.8; /* Increased line height */
+  font-size: 1.1rem; /* Larger */
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.feature-icon { 
+  width: 64px; /* Larger icon */
+  height: 64px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin: 0 auto 20px; /* Increased margin */
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1); /* Brighter background */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* More visible border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+/* ---------------------------------------------------- */
+/* 4. Pricing Card Styling (.price-card) */
+/* ---------------------------------------------------- */
+.price-card { 
+  padding: 32px; /* Increased padding */
+  border-radius: 16px; 
+  background: var(--card-bg); 
+  text-align: center; 
+  box-shadow: 0 14px 36px rgba(4,12,24,0.25); /* Stronger shadow */
+  border: 1px solid var(--border-color); 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 300ms ease, 
+              box-shadow 300ms ease, 
+              border-color 300ms ease,
+              background-color 300ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.plan-name { 
+  font-weight: 800; /* Bolder */
+  color: var(--accent1); 
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Increased spacing */
+  font-size: 1.1rem;
+}
+
+.plan-price { 
+  font-size: 3.2rem; /* Larger */
+  margin-top: 12px; /* Increased spacing */
+  color: var(--text-primary); 
+  font-weight: 900; 
+  line-height: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
+}
+
+.plan-price small {
+  font-size: 2.2rem; /* Larger */
+  font-weight: 800;
+}
+
+.plan-list { 
+  list-style: none; 
+  padding: 0; 
+  margin: 20px 0 30px; /* Increased spacing */
+  color: var(--text-muted);
+  flex-grow: 1;
+}
+
+.plan-list li {
+  position: relative;
+  padding: 10px 0 10px 30px; /* Increased padding */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* More visible border */
+  font-size: 1.1rem; /* Larger */
+  text-align: left;
+  font-weight: 400;
+}
+
+.plan-list li::before {
+  content: "✓";
+  color: var(--accent2);
+  position: absolute;
+  left: 0;
+  font-weight: 900; /* Bolder */
+  font-size: 1.2rem; /* Larger */
+}
+
+/* ---------------------------------------------------- */
+/* 5. Tech Chip Styling (.tech-chip) */
+/* ---------------------------------------------------- */
+.tech-chip { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 10px; /* Increased gap */
+  padding: 12px 20px; /* Increased padding */
+  border-radius: 999px; 
+  background: var(--card-bg); 
+  border: 1px solid var(--border-color); 
+  color: var(--text-primary); 
+  font-weight: 600; 
+  transition: transform 200ms ease, 
+              background-color 200ms ease,
+              border-color 200ms ease;
+  cursor: default;
+  user-select: none;
+  text-decoration: none;
+  font-size: 1.05rem; /* Larger font */
+}
+
+.chip-label { 
+  font-size: 1.05rem; 
+  font-weight: 500; /* Slightly bolder */
+}
+
+/* ---------------------------------------------------- */
+/* 6. Testimonial Styling */
+/* ---------------------------------------------------- */
+.testimonial-wrap { 
+  max-width: 800px;
+  margin: 30px auto 0;
+  padding: 0 40px;
+  gap: 20px; 
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-card { 
+  max-width: 720px;
+  flex-grow: 1;
+  padding: 32px; /* Increased padding */
+  border-radius: 16px; 
+  background: var(--card-bg); 
+  box-shadow: var(--shadow-lg); 
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  transition: border-color 200ms ease;
+}
+
+.quote { 
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem); /* Larger */
+  line-height: 1.8; /* Increased line height */
+  margin-bottom: 20px; /* Increased spacing */
+  color: var(--text-primary); 
+  quotes: "“" "”" "‘" "’";
+  font-weight: 400;
+}
+
+.quote::before {
+  content: open-quote;
+  color: var(--accent2);
+  font-size: 2.5em; /* Larger */
+  line-height: 0;
+  margin-right: 8px; /* Increased spacing */
+  opacity: 0.8;
+}
+
+.quote::after {
+  content: close-quote;
+  color: var(--accent2);
+  font-size: 2.5em;
+  line-height: 0;
+  margin-left: 8px;
+  opacity: 0.8;
+}
+
+.testimonial-card footer {
+  font-size: 1.1rem; /* Larger */
+  font-style: italic;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px; /* Increased padding */
+  margin-top: 20px; /* Increased margin */
+  font-weight: 500; /* Bolder */
+}
+
+.testimonial-card footer .muted-role {
+  font-style: normal;
+  color: var(--text-muted);
+  opacity: 0.9; /* Less muted */
+  display: block;
+  margin-top: 6px; /* Increased spacing */
+  font-size: 1rem;
+}
+
+/* ---------------------------------------------------- */
+/* 7. Contact CTA Styling (.contact-cta) */
+/* ---------------------------------------------------- */
+.contact-cta {
+  margin-top: 80px; /* Increased spacing */
+}
+
+.contact-cta .cta-inner { 
+  background: linear-gradient(90deg, 
+    rgba(59, 130, 246, 0.15),  /* Brighter gradient */
+    rgba(34, 211, 238, 0.1)); 
+  box-shadow: var(--shadow-lg); 
+  border-radius: 16px !important;
+  padding: 40px !important; /* Increased padding */
+  border: 1px solid rgba(59, 130, 246, 0.2); /* More visible border */
+  text-align: center;
+}
+
+.contact-cta h4 {
+  color: var(--text-primary);
+  font-weight: 900; /* Bolder */
+  font-size: clamp(1.6rem, 2.2vw, 2rem); /* Larger */
+  margin-top: 0;
+  margin-bottom: 20px; /* Increased spacing */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.contact-cta p {
+  color: var(--text-muted);
+  font-size: 1.15rem; /* Larger */
+  margin-bottom: 30px; /* Increased spacing */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ---------------------------------------------------- */
+/* 8. Light Mode Overrides - IMPROVED CONTRAST */
+/* ---------------------------------------------------- */
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Light Theme Variables with better contrast */
+    --bg-section: #ffffff;
+    --text-primary: #0f172a; /* Much darker for better contrast (was #061428) */
+    --text-muted: #475569; /* Darker muted text (was #496681) */
+    --card-bg: #f1f5f9; /* Lighter background */
+    --border-color: rgba(15, 23, 42, 0.15); /* Darker borders */
+    --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.15); /* Stronger shadows */
+    --shadow-accent: 0 16px 40px rgba(59, 130, 246, 0.25);
+  }
+
+  .feature-card, 
+  .price-card, 
+  .testimonial-card, 
+  .tech-chip {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+  }
+
+  .feature-card h5,
+  .plan-price,
+  .contact-cta h4 {
+    color: var(--text-primary);
+  }
+
+  .feature-card p,
+  .plan-list li,
+  .contact-cta p {
+    color: var(--text-muted);
+  }
+
+  .feature-icon {
+    background: rgba(59, 130, 246, 0.1); /* More visible in light mode */
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .plan-list li {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.15);
+  }
+
+  .testimonial-card footer {
+    border-top: 1px solid var(--border-color);
+  }
+
+  .contact-cta .cta-inner {
+    background: linear-gradient(90deg, 
+      rgba(59, 130, 246, 0.1), 
+      rgba(34, 211, 238, 0.07));
+    border: 1px solid rgba(59, 130, 246, 0.25);
+  }
+}
+
+/* ---------------------------------------------------- */
+/* 9. Text Size Adjustments for Better Readability */
+/* ---------------------------------------------------- */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem; /* Ensure minimum size */
+  }
+  
+  .feature-card h5 {
+    font-size: 1.2rem;
+  }
+  
+  .feature-card p {
+    font-size: 1rem;
+  }
+  
+  .plan-price {
+    font-size: 2.8rem;
+  }
+  
+  .quote {
+    font-size: 1.15rem;
+  }
+  
+  .contact-cta h4 {
+    font-size: 1.5rem;
+  }
+  
+  .contact-cta p {
+    font-size: 1.05rem;
+  }
+}
+
+/* ---------------------------------------------------- */
+/* 10. Font Weight Improvements */
+/* ---------------------------------------------------- */
+.section-intro,
+.feature-card p,
+.plan-list li,
+.contact-cta p {
+  font-weight: 400; /* Ensure good readability weight */
+}
+
+.feature-card h5,
+.section-title,
+.contact-cta h4 {
+  font-weight: 800; /* Strong emphasis */
+}
+
+/* ---------------------------------------------------- */
+/* 11. Letter Spacing for Better Readability */
+/* ---------------------------------------------------- */
+.section-title,
+.feature-card h5,
+.contact-cta h4 {
+  letter-spacing: -0.01em; /* Slight negative spacing for modern look */
+}
+
+.plan-name {
+  letter-spacing: 1px; /* Uppercase needs more spacing */
+}
+
+/* ---------------------------------------------------- */
+/* 12. Focus States for Accessibility */
+/* ---------------------------------------------------- */
+.feature-card:focus-within,
+.price-card:focus-within,
+.testimonial-card:focus-within {
+  outline: 2px solid var(--accent2);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------- */
+/* 13. Contrast Check Overrides */
+/* ---------------------------------------------------- */
+/* Force minimum contrast for critical text */
+.section-title,
+.feature-card h5,
+.plan-price,
+.contact-cta h4 {
+  color: var(--text-primary) !important;
+}
+
+/* Ensure paragraph text has sufficient contrast */
+.feature-card p,
+.section-intro,
+.plan-list li,
+.contact-cta p,
+.testimonial-card footer {
+  color: var(--text-muted) !important;
+  opacity: 1 !important; /* Prevent any transparency */
+}
+
+/* ---------------------------------------------------- */
+/* 14. COMPREHENSIVE MOBILE-FIRST RESPONSIVE DESIGN */
+/* ---------------------------------------------------- */
+
+/* Mobile Base (320px - 575px) */
+@media (max-width: 575px) {
+  .sections {
+    padding: clamp(32px, 6vh, 48px) clamp(12px, 2.5vw, 24px);
+  }
+  
+  .feature-cards-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(16px, 3vw, 24px);
+  }
+  
+  .feature-card {
+    padding: clamp(16px, 2.5vw, 20px);
+  }
+  
+  .feature-card h5 {
+    font-size: clamp(16px, 2.5vw, 20px);
+    margin-bottom: clamp(8px, 1.5vw, 12px);
+  }
+  
+  .feature-card p {
+    font-size: clamp(13px, 1.8vw, 15px);
+    line-height: 1.6;
+  }
+  
+  .pricing-cards-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(16px, 3vw, 24px);
+  }
+  
+  .price-card {
+    padding: clamp(16px, 2.5vw, 20px);
+  }
+  
+  .plan-price {
+    font-size: clamp(24px, 3.5vw, 32px);
+  }
+  
+  .plan-list li {
+    font-size: clamp(12px, 1.7vw, 14px);
+    padding: clamp(6px, 1vw, 10px) 0;
+  }
+  
+  .cta-button {
+    width: 100%;
+    min-height: 48px;
+    padding: clamp(12px, 2vw, 16px) clamp(20px, 3vw, 28px);
+    font-size: clamp(14px, 1.8vw, 16px);
+  }
+}
+
+/* Tablet (576px - 991px) */
+@media (min-width: 576px) and (max-width: 991px) {
+  .feature-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(16px, 2.5vw, 28px);
+  }
+  
+  .pricing-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(16px, 2.5vw, 28px);
+  }
+  
+  .price-card.featured {
+    grid-column: 1 / -1;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Desktop (992px - 1199px) */
+@media (min-width: 992px) {
+  .feature-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 2vw, 32px);
+  }
+  
+  .pricing-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 1.5vw, 24px);
+  }
+}
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+  .sections {
+    padding: clamp(80px, 12vh, 120px) 40px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .feature-card,
+  .price-card,
+  .testimonial-card,
+  .cta-button {
+    min-height: 56px;
+  }
+  
+  .cta-button {
+    padding: clamp(14px, 2vw, 18px) clamp(24px, 3vw, 32px);
+    font-size: 16px;
+  }
+  
+  /* Remove hover effects on touch, add active state */
+  .feature-card:active,
+  .price-card:active,
+  .testimonial-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .feature-card,
+  .price-card,
+  .testimonial-card,
+  .feature-icon {
+    animation: none !important;
+    transition: color 0.2s ease, background-color 0.2s ease !important;
+  }
+}

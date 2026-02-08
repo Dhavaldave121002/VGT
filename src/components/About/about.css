@@ -1,0 +1,786 @@
+/* about.css - ULTRA PREMIUM professional, high-visibility styling */
+
+/* ========== 1. ENHANCED VARIABLES ========== */
+:root {
+  /* Enhanced Core Colors - Brighter & More Contrast */
+  --bg-section: #0b1220; /* Darker background for better contrast */
+  --text-primary: #ffffff; /* Pure white for maximum visibility */
+  --text-secondary: #e2e8f0; /* Very light gray for secondary text */
+  --text-muted: #94a3b8; /* Brighter muted text */
+  
+  /* Enhanced Accent Colors - More Vibrant */
+  --accent1: #00d8ff; /* Neon cyan - extremely bright */
+  --accent2: #2563eb; /* Bright blue */
+  --accent-glow: rgba(0, 216, 255, 0.4); /* Glow effect for accents */
+  
+  /* Enhanced UI Elements - More Visible */
+  --card-bg: rgba(255, 255, 255, 0.12); /* Much more visible */
+  --card-bg-soft: rgba(255, 255, 255, 0.08);
+  --border-color: rgba(255, 255, 255, 0.25); /* Much stronger borders */
+  --border-glow: rgba(0, 216, 255, 0.3);
+  
+  /* Enhanced Shadows - More Depth */
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 25px 60px rgba(0, 0, 0, 0.6);
+  --shadow-accent: 0 20px 50px rgba(37, 99, 235, 0.4);
+  --shadow-glow: 0 0 30px rgba(0, 216, 255, 0.3);
+  
+  /* Spacing */
+  --radius-lg: 20px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+}
+
+/* ========== 2. GLOBAL RESETS & BASE ========== */
+.vg-about * {
+  box-sizing: border-box;
+}
+
+.vg-about {
+  color: var(--text-primary);
+  background-color: var(--bg-section);
+  padding-top: 80px;
+  padding-bottom: 100px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background Gradient Overlay */
+.vg-about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background: linear-gradient(180deg, 
+    rgba(37, 99, 235, 0.15) 0%,
+    transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ========== 3. HERO SECTION - ENHANCED ========== */
+.about-hero {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero .eyebrow {
+  color: var(--accent1);
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(0, 216, 255, 0.15);
+  border-radius: 50px;
+  border: 1px solid var(--border-glow);
+  text-shadow: 0 0 10px var(--accent-glow);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.hero-title {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 30px;
+  color: var(--text-primary);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.hero-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  border-radius: 2px;
+}
+
+.hero-sub {
+  color: var(--text-secondary);
+  max-width: 700px;
+  font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+  line-height: 1.8;
+  font-weight: 400;
+  margin-bottom: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+}
+
+.hero-visual-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-visual {
+  max-width: 500px;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl), 0 0 0 1px var(--border-color);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, var(--accent1), var(--accent2));
+  border-radius: var(--radius-lg);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-visual:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-accent), 0 0 30px var(--accent-glow);
+  }
+  
+  .hero-visual:hover::before {
+    opacity: 1;
+  }
+}
+
+/* ========== 4. MISSION/VISION CARDS - ENHANCED ========== */
+.sp-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-lg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 40px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.sp-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+}
+
+.sp-card h3 {
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--accent1);
+  margin-top: 0;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 15px var(--accent-glow);
+}
+
+.sp-feature-list {
+  list-style: none;
+  padding-left: 0;
+  color: var(--text-secondary);
+  margin: 25px 0 0 0;
+}
+
+.sp-feature-list li {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.sp-feature-list li::before {
+  content: '✦';
+  color: var(--accent1);
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px var(--accent-glow);
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sp-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent1);
+    box-shadow: var(--shadow-accent), 0 0 30px var(--accent-glow);
+  }
+}
+
+/* ========== 5. CORE VALUES - ENHANCED ========== */
+.value-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-color);
+  padding: 30px !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.value-icon {
+  font-size: 2.5rem;
+  color: var(--accent1);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 20px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 216, 255, 0.15);
+  border-radius: 50%;
+  border: 2px solid var(--border-glow);
+}
+
+.value-card h5 {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+}
+
+.value-card p {
+  color: var(--text-secondary) !important;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .value-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent1);
+    box-shadow: 0 15px 40px rgba(0, 216, 255, 0.2);
+  }
+}
+
+/* ========== 6. TEAM SECTION - ENHANCED ========== */
+.team-wrap {
+  background: var(--card-bg-soft) !important;
+  border: 2px solid var(--border-color);
+  padding: 50px !important;
+  border-radius: var(--radius-lg);
+  margin: 60px 0;
+  backdrop-filter: blur(10px);
+}
+
+.team-wrap h3 {
+  font-weight: 900;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  color: var(--text-primary);
+  margin: 0 0 40px 0;
+  text-align: center;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.team-wrap h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  border-radius: 2px;
+}
+
+.team-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-color);
+  padding: 30px !important;
+  transition: all 0.4s ease;
+  text-align: center;
+  height: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.team-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--accent2);
+  transition: all 0.4s ease;
+  margin: 0 auto 25px;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+  position: relative;
+}
+
+.team-img::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 2px solid var(--accent1);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.team-card h6 {
+  font-weight: 800;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.team-card .text-muted {
+  color: var(--text-secondary) !important;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .team-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent1);
+    box-shadow: var(--shadow-accent);
+  }
+  
+  .team-card:hover .team-img {
+    border-color: var(--accent1);
+    transform: scale(1.1);
+  }
+  
+  .team-card:hover .team-img::after {
+    opacity: 1;
+  }
+}
+
+/* ========== 7. TIMELINE - ENHANCED ========== */
+.timeline-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  margin: 50px auto 0;
+  padding-left: 40px;
+}
+
+.timeline-list::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--accent1), var(--accent2));
+  border-radius: 2px;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 25px 30px;
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-color);
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.timeline-year {
+  font-weight: 900;
+  color: var(--accent1);
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timeline-year::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background: var(--accent2);
+  border-radius: 50%;
+  border: 4px solid var(--bg-section);
+  box-shadow: 0 0 0 2px var(--accent1), 0 0 20px var(--accent-glow);
+}
+
+.timeline-item h5 {
+  font-weight: 800;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  margin: 0 0 10px 0;
+}
+
+.timeline-item p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .timeline-item:hover {
+    transform: translateX(10px);
+    border-color: var(--accent1);
+    box-shadow: 0 15px 40px rgba(0, 216, 255, 0.2);
+  }
+}
+
+/* ========== 8. STATS & CTA - ENHANCED ========== */
+.stats-cta {
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 50px;
+  background: var(--card-bg-soft);
+  margin-top: 60px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+}
+
+.stat-box {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-color);
+  padding: 30px !important;
+  transition: all 0.3s ease;
+  height: 100%;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.stat-number {
+  font-weight: 900;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: var(--accent1);
+  margin-bottom: 10px;
+  display: block;
+  line-height: 1;
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.stat-label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .stat-box:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent1);
+    box-shadow: 0 20px 40px rgba(0, 216, 255, 0.2);
+  }
+}
+
+/* CTA Button - Premium */
+.stats-cta .btn-primary {
+  background: linear-gradient(90deg, var(--accent2), var(--accent1)) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 900;
+  padding: 20px 40px !important;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.4);
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.stats-cta .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .stats-cta .btn-primary:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(37, 99, 235, 0.5), 0 0 30px var(--accent-glow);
+  }
+  
+  .stats-cta .btn-primary:hover::before {
+    left: 100%;
+  }
+}
+
+/* ========== 9. LIGHT MODE - ENHANCED ========== */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-section: #ffffff;
+    --text-primary: #0f172a; /* Very dark for maximum contrast */
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    
+    /* Keep vibrant accents */
+    --accent1: #00a8cc; /* Slightly toned down but still bright */
+    --accent2: #1d4ed8;
+    --accent-glow: rgba(0, 168, 204, 0.2);
+    
+    --card-bg: #ffffff;
+    --card-bg-soft: #f8fafc;
+    --border-color: rgba(15, 23, 42, 0.2);
+    --border-glow: rgba(0, 168, 204, 0.15);
+    
+    --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.15);
+    --shadow-xl: 0 25px 60px rgba(15, 23, 42, 0.2);
+    --shadow-accent: 0 20px 50px rgba(29, 78, 216, 0.2);
+  }
+  
+  .vg-about {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  }
+  
+  .vg-about::before {
+    background: linear-gradient(180deg, 
+      rgba(29, 78, 216, 0.1) 0%,
+      transparent 100%);
+  }
+  
+  .hero-sub {
+    background: rgba(15, 23, 42, 0.03);
+    border: 2px solid var(--border-color);
+  }
+  
+  .sp-card,
+  .value-card,
+  .team-card,
+  .timeline-item,
+  .stat-box {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .team-wrap,
+  .stats-cta {
+    background: var(--card-bg-soft) !important;
+    border: 2px solid var(--border-color);
+  }
+  
+  .timeline-list::before {
+    background: linear-gradient(to bottom, var(--accent1), var(--accent2));
+    box-shadow: 0 0 15px var(--accent-glow);
+  }
+}
+
+/* ========== 10. RESPONSIVE DESIGN ========== */
+@media (max-width: 1200px) {
+  .sp-card {
+    padding: 30px;
+  }
+  
+  .team-wrap {
+    padding: 40px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .vg-about {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+  }
+  
+  .sp-card,
+  .team-card {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .vg-about {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .about-hero {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-sub {
+    font-size: 1.1rem;
+    padding: 20px;
+  }
+  
+  .sp-card,
+  .value-card,
+  .team-card,
+  .timeline-item,
+  .stat-box {
+    padding: 25px !important;
+  }
+  
+  .team-wrap,
+  .stats-cta {
+    padding: 30px !important;
+  }
+  
+  .timeline-list {
+    padding-left: 30px;
+  }
+  
+  .timeline-list::before {
+    left: 15px;
+  }
+  
+  .stats-cta .btn-primary {
+    padding: 18px 30px !important;
+    width: 100%;
+  }
+  
+  .team-img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .sp-card h3 {
+    font-size: 1.6rem;
+  }
+  
+  .value-card h5 {
+    font-size: 1.2rem;
+  }
+  
+  .timeline-item {
+    padding: 20px;
+  }
+}
+
+/* ========== 11. ACCESSIBILITY ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .eyebrow {
+    animation: none !important;
+  }
+  
+  .sp-feature-list li::before {
+    animation: none !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --border-color: #ffffff;
+    --accent1: #00ffff;
+    --accent2: #0000ff;
+  }
+  
+  .sp-card,
+  .value-card,
+  .team-card,
+  .timeline-item,
+  .stat-box {
+    border-width: 3px;
+    background: #000000 !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .vg-about {
+    background: white !important;
+    color: black !important;
+    padding: 20px 0 !important;
+  }
+  
+  .hero-visual,
+  .stats-cta .btn-primary {
+    display: none !important;
+  }
+  
+  .sp-card,
+  .value-card,
+  .team-card,
+  .timeline-item,
+  .stat-box {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    background: white !important;
+    color: black !important;
+    break-inside: avoid;
+  }
+}
